@@ -27,16 +27,17 @@
                 text-decoration: none;
             }
             /* Styles pour le carrousel */
-            .carousel-inner .row {
+            .carousel-item .row {
                 display: flex;
-                justify-content: center;
-                align-items: stretch;
+                flex-direction: column; /* Empile les projets verticalement */
+                align-items: center;
             }
             .carousel-item .project {
-                height: 100%; /* Uniformise la hauteur des projets */
+                height: 100%; /* Uniformise la hauteur */
+                width: 100%; /* Assure que le texte occupe toute la largeur disponible */
             }
             .carousel-item .project-text {
-                padding: 15px; /* Ajoute un peu d'espace interne */
+                padding: 15px; /* Ajoute un espace interne */
             }
             .carousel-control-prev, .carousel-control-next {
                 width: 5%; /* Réduit la zone cliquable des flèches */
@@ -116,43 +117,66 @@
                         </div>
                     </div>
                 </div>
-                <!-- Carousel pour les deux derniers projets -->
+                <!-- Carousel pour les deux derniers projets avec disposition initiale -->
                 <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                     <div class="carousel-inner">
                         <!-- Première diapositive : QILLER et Multi-agent RAG -->
                         <div class="carousel-item active">
-                            <div class="row gx-0 justify-content-center">
-                                <!-- Project One (QILLER) -->
-                                <div class="col-lg-6">
-                                    <div class="bg-black text-center h-100 project">
-                                        <div class="d-flex h-100">
-                                            <div class="project-text w-100 my-auto text-center text-lg-left">
-                                                <img class="img-fluid mb-3" src="assets/img/image_QILLER.webp" alt="..." loading="lazy" />
-                                                <h4 class="text-white">QILLER: Quantum Incremental Learning</h4>
-                                                <p class="mb-0 text-white-50">
-                                                    😊 QILLER, a quantum ML method in IEEE Transactions, enables lifelong learning by addressing catastrophic forgetting in VQAs with representation learning, knowledge distillation, and exemplar memory—big thanks to Ibrahim Khalil and Asitha Kottahachchi Kankanamge Don! 🚀 Scoring 16-29% accuracy on MNIST and CIFAR-10, it beats rivals despite hardware limits. 🌟
-                                                </p>
-                                                <a class="btn btn-primary mt-3" href="project3.html">Learn More 📄</a>
+                            <div class="container px-4 px-lg-5">
+                                <!-- Project One Row (QILLER : image gauche, texte droite) -->
+                                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                                    <div class="col-lg-6">
+                                        <img class="img-fluid" src="assets/img/image_QILLER.webp" alt="..." loading="lazy" />
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="bg-black text-center h-100 project">
+                                            <div class="d-flex h-100">
+                                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                                    <h4 class="text-white">QILLER: Quantum Incremental Learning</h4>
+                                                    <p class="mb-0 text-white-50">
+                                                        😊 QILLER, a quantum ML method in IEEE Transactions, enables lifelong learning by addressing catastrophic forgetting in VQAs with representation learning, knowledge distillation, and exemplar memory—big thanks to Ibrahim Khalil and Asitha Kottahachchi Kankanamge Don! 🚀 Scoring 16-29% accuracy on MNIST and CIFAR-10, it beats rivals despite hardware limits. 🌟
+                                                    </p>
+                                                    <a class="btn btn-primary mt-3" href="project3.html">Learn More 📄</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Project Two (Multi-agent RAG) -->
-                                <div class="col-lg-6 order-lg-first">
-                                    <div class="bg-black text-center h-100 project">
-                                        <div class="d-flex h-100">
-                                            <div class="project-text w-100 my-auto text-justify text-lg-right">
-                                                <img class="img-fluid mb-3" src="assets/img/image_RAGAGENT.webp" alt="..." loading="lazy" />
-                                                <h4 class="text-white">Multi-agent RAG System for Tweet Automation</h4>
-                                                <p class="mb-0 text-white-50">à faire</p>
-                                                <a class="btn btn-primary mt-3" href="project2.html">Learn More 📄</a>
+                                <!-- Project Two Row (Multi-agent RAG : image droite, texte gauche) -->
+                                <div class="row gx-0 justify-content-center">
+                                    <div class="col-lg-6 order-lg-first">
+                                        <div class="bg-black text-center h-100 project">
+                                            <div class="d-flex h-100">
+                                                <div class="project-text w-100 my-auto text-justify text-lg-right">
+                                                    <h4 class="text-white">Multi-agent RAG System for Tweet Automation</h4>
+                                                    <p class="mb-0 text-white-50">à faire</p>
+                                                    <a class="btn btn-primary mt-3" href="project2.html">Learn More 📄</a>
+                                                </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <img class="img-fluid" src="assets/img/image_RAGAGENT.webp" alt="..." loading="lazy" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Ajoutez d'autres paires ici si vous avez plus de projets -->
+                        <div class="row gx-0 justify-content-center">
+                            <div class="col-lg-6 order-lg-first">
+                                <div class="bg-black text-center h-100 project">
+                                    <div class="d-flex h-100">
+                                        <div class="project-text w-100 my-auto text-justify text-lg-right">
+                                            <h4 class="text-white">Project Y</h4>
+                                            <p class="mb-0 text-white-50">Description à venir</p>
+                                            <a class="btn btn-primary mt-3" href="#">Learn More 📄</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img class="img-fluid" src="assets/img/placeholder2.webp" alt="..." loading="lazy" />
+                            </div>
+                        </div>
                     </div>
                     <!-- Contrôles du carrousel -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
@@ -166,7 +190,6 @@
                 </div>
             </div>
         </section>
-        
         <!-- Signup-->
         <section class="signup-section" id="signup">
             <div class="container px-4 px-lg-5">
