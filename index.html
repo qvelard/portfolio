@@ -121,32 +121,27 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
-                        <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Email address input-->
+                        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="showMessage(event)">
+                            <input type="hidden" name="bot-field">
                             <div class="row input-group-newsletter">
-                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-                                <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
-                            </div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3 mt-2 text-white">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                <div class="col">
+                                    <input class="form-control" type="email" name="email" placeholder="Enter email address..." required>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-primary" type="submit"> Let me know your email to reach you out !</button>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
+                            <p id="form-message" style="display: none; color: white; margin-top: 10px;"></p>
                         </form>
+                        
+                        <script>
+                        function showMessage(event) {
+                            event.preventDefault(); 
+                            document.getElementById('form-message').innerText = "Merci ! Votre message a bien été envoyé.";
+                            document.getElementById('form-message').style.display = "block";
+                            setTimeout(() => location.reload(), 3000);
+                        }
+                        </script>
                     </div>
                 </div>
             </div>
