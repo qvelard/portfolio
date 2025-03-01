@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Project 1 - Quentin Velard</title>
+        <meta name="description" content="Explore Project QILLER: Quantum Incremental Learning for Lifelong Erosion Resilience in Variational Quantum Algorithms" />
+        <meta name="author" content="Quentin Velard" />
+        <title>Project QILLER - Quentin Velard</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -14,6 +14,32 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <style>
+            .content-section {
+                padding: 50px 0;
+            }
+            .download-btn {
+                display: inline-block;
+                background-color: #007BFF;
+                color: white;
+                padding: 15px 30px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 18px;
+                border-radius: 8px;
+                margin: 30px 0;
+                transition: background-color 0.3s ease;
+            }
+            .download-btn:hover {
+                background-color: #0056b3;
+            }
+            .masthead h1, .masthead h2, .content-section h2 {
+                margin-bottom: 20px;
+            }
+            .contact-section .card {
+                margin-bottom: 30px;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -37,8 +63,8 @@
         <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex flex-column justify-content-center align-items-center text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">Project 3</h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Detailed information about Project 1</h2>
+                    <h1 class="mx-auto my-0 text-uppercase">Project QILLER</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Exploring Quantum Incremental Learning 🚀</h2>
                 </div>
             </div>
         </header>
@@ -47,10 +73,87 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8">
-                        <h2 class="text-black mb-4">Project 3 Details</h2>
+                        <style>
+                            h2 { color: #333; }
+                            h3 { color: #555; margin-top: 20px; }
+                            p { line-height: 1.6; }
+                        </style>
+        
+                        <h2 class="text-black mb-4">Project QILLER: Quantum Incremental Learning for Lifelong Erosion Resilience 🧠</h2>
                         <p class="text-black-50">
-                            Detailed information about Project 3 goes here.
+                            😊 The paper introduces a new method called QILLER, which stands for "Quantum Incremental Learning for Lifelong Erosion Resilience." It’s published in the IEEE Transactions on Neural Networks and Learning Systems and focuses on improving how quantum machine learning models learn over time without forgetting what they’ve already mastered.
                         </p>
+                        <p class="text-black-50">
+                            🤔 Catastrophic forgetting is a key problem this paper addresses. In both classical and quantum machine learning, this happens when a model learns new information but loses its ability to remember older knowledge—like forgetting how to ride a bike after learning to drive a car. The authors show this issue exists in variational quantum algorithms (VQAs), a type of quantum machine learning model, and aim to fix it.
+                        </p>
+                        <p class="text-black-50">
+                            🚀 QILLER combines several cool techniques to solve this: representation learning, knowledge distillation, and exemplar memory. These work together to help the model learn new tasks incrementally while holding onto past knowledge, all within a quantum computing framework.
+                        </p>
+                        <p class="text-black-50">
+                            🌟 The goal is lifelong learning, inspired by how humans can keep learning new skills without forgetting old ones. The authors test their method on datasets like MNIST (handwritten digits), FMNIST (fashion items), KMNIST (Japanese characters), and CIFAR-10 (color images), showing it outperforms other approaches.
+                        </p>
+        
+                        <h3>🗝️ Key Concepts Explained</h3>
+                        <p class="text-black-50">
+                            🤯 <strong>Catastrophic Forgetting</strong>: Imagine training a quantum classifier to recognize quantum phases of matter (a physics task), and it works great. Then, you train it on handwritten digits (like 0s and 1s). Suddenly, it forgets the physics task entirely! That’s catastrophic forgetting, and the paper gives this exact example from prior research to highlight the issue in VQAs.
+                        </p>
+                        <p class="text-black-50">
+                            📊 <strong>Representation Learning</strong>: This is about transforming messy data (like images) into a simpler, more useful form—like summarizing a book into key points. Here, it’s done with a quantum autoencoder, which compresses classical data into a quantum state that’s easier for the model to work with.
+                        </p>
+                        <p class="text-black-50">
+                            👨‍🏫 <strong>Knowledge Distillation</strong>: Think of it as a student learning from a teacher. The “teacher” is the model’s past knowledge, and the “student” is the updated model. It uses a special loss function to ensure the new model mimics what the old one knew, preventing forgetting.
+                        </p>
+                        <p class="text-black-50">
+                            💾 <strong>Exemplar Memory</strong>: This acts like a scrapbook of important examples. It stores a small, representative set of samples from old tasks (picked using a method called herding selection) so the model can revisit them and remember past lessons.
+                        </p>
+        
+                        <h3>🔧 How QILLER Works</h3>
+                        <p class="text-black-50">
+                            🔬 <strong>Two-Part Architecture</strong>: QILLER splits into a feature extractor and a classifier. The feature extractor uses a quantum autoencoder (QAE) to turn classical data into quantum features—a 64-dimensional vector—trained once with supervised contrastive loss and then frozen. The classifier, a Variational Quantum Classifier (VQC), predicts classes using these features.
+                        </p>
+                        <p class="text-black-50">
+                            🛠️ <strong>Incremental Learning Steps</strong>: It starts by training on the first task with cross-entropy loss. As new tasks come in, the VQC updates using a mix of cross-entropy loss (for new classes) and distillation loss (to keep old knowledge), referencing past outputs stored in exemplar memory. After each step, the memory updates with new representative samples.
+                        </p>
+                        <p class="text-black-50">
+                            🎯 <strong>Loss Function Magic</strong>: The loss combines cross-entropy for new learning and distillation to retain old knowledge, with a temperature parameter (T=2) balancing it. It’s optimized with COBYLA, a gradient-free method suited for quantum circuits.
+                        </p>
+        
+                        <h3>📈 Experimental Results</h3>
+                        <p class="text-black-50">
+                            📊 <strong>Impressive Numbers</strong>: QILLER was tested on MNIST, FMNIST, KMNIST, and CIFAR-10. On MNIST, it hit 29% accuracy for 10 classes (1-class-per-step) versus 9-27% for rivals like SCL-VQC, iCaRL-VQC, and TL-VQC. On FMNIST, it scored 28%, beating TL-VQC (19%). KMNIST saw 24%, topping others (12-15%). CIFAR-10 achieved 16%, outperforming TL-VQC (9%).
+                        </p>
+                        <p class="text-black-50">
+                            ⚡ <strong>Real Quantum Hardware</strong>: Tested on Amazon Braket’s IonQ Harmony (11 qubits) and simulators, it proves practical even with limits like resizing images to 16x16 pixels.
+                        </p>
+                        <p class="text-black-50">
+                            ⚠️ <strong>Not Perfect Yet</strong>: Accuracies drop as classes grow due to quantum hardware constraints—still a work in progress!
+                        </p>
+        
+                        <h3>🌟 Why It’s Awesome</h3>
+                        <p class="text-black-50">
+                            🌍 <strong>Real-World Ready</strong>: QILLER tackles continuous data streams (think smart cities or social media) where new info keeps coming, unlike older methods that struggle with scalability or forget too much.
+                        </p>
+                        <p class="text-black-50">
+                            🔧 <strong>Efficient Design</strong>: It uses fewer qubits and discards old VQCs after training, saving quantum resources while still learning effectively.
+                        </p>
+                        <p class="text-black-50">
+                            💡 <strong>Beats the Competition</strong>: Outperforms methods like iCaRL-VQC (memory-heavy) and SCL-VQC (less adaptive) by balancing feature extraction and classification in a quantum way.
+                        </p>
+        
+                        <h3>🚧 Challenges and Future</h3>
+                        <p class="text-black-50">
+                            😟 <strong>Hardware Limits</strong>: Quantum hardware keeps accuracies low for many classes—think 16-29% for 10 classes versus classical models’ 90%+. Noise and small qubit counts are the culprits.
+                        </p>
+                        <p class="text-black-50">
+                            🔮 <strong>Future Potential</strong>: As quantum tech improves, QILLER could scale to bigger, more complex tasks, making quantum lifelong learning a reality.
+                        </p>
+        
+                        <p class="text-black-50">
+                            For more detailed insights, you can download the full project report below:
+                        </p>
+                        <a class="btn btn-primary" href="TNNLS-2024-P-38194_Project_QILLER.pdf" target="_blank">
+                            View Project QILLER PDF 📄
+                        </a>
                     </div>
                 </div>
             </div>
@@ -95,7 +198,6 @@
                     <a class="mx-2" href="https://github.com/qvelard" target="_blank"><i class="fab fa-github"></i></a>
                     <a class="mx-2" href="https://huggingface.co/Qvelard" target="_blank" style="font-size: 1.5rem;">🤗</a>
                     <a class="mx-2" href="www.linkedin.com/in/quentin-velard/" target="_blank"><i class="fab fa-linkedin"></i></a>
-
                 </div>
             </div>
         </section>
