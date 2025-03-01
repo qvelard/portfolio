@@ -14,6 +14,16 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Styles personnalisés pour plus d'aération -->
+        <style>
+            h1, h2, h3, h4, h5, h6 {
+                margin-bottom: 30px; /* Espacement sous les titres */
+            }
+            .btn {
+                margin-top: 20px;    /* Espacement au-dessus du bouton */
+                margin-bottom: 30px; /* Espacement sous le bouton */
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -37,8 +47,8 @@
         <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex flex-column justify-content-center align-items-center text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">Project 1</h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Detailed information about Project 1</h2>
+                    <h1 class="mx-auto my-0 text-uppercase">Biomolecule Generation with Anti-oxydant and Anti-inflammatory properties</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Deep Learning for Computationnal Biology</h2>
                 </div>
             </div>
         </header>
@@ -49,8 +59,148 @@
                     <div class="col-lg-8">
                         <h2 class="text-black mb-4">Project 1 Details</h2>
                         <p class="text-black-50">
-                            Detailed information about Project 1 goes here.
+                            The GIMA Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabanes at École des Mines de Nancy, leverages deep learning to generate biomolecules with anti-inflammatory (AI) and antioxidant (AO) properties. This work supports the "Biomolecules 4 Bioeconomy" framework, with potential applications in pharmaceuticals, agrochemicals, and cosmetics.
                         </p>
+                        <h3>Objectives</h3>
+                        <p class="text-black-50">
+                            The project focuses on two main goals:
+                        </p>
+                        <ol>
+                            <li><strong>State-of-the-Art Review</strong>: Analyze existing deep learning methods for molecular generation and identify pretrained models to adapt.</li>
+                            <li><strong>Model Training</strong>: Develop neural networks using transfer learning to create biomolecules with AI and AO properties.</li>
+                        </ol>
+                        <p class="text-black-50">
+                            With a molecular space of approximately \(10^{60}\) possibilities and limited open-source data, traditional discovery is slow—deep learning aims to change that!
+                        </p>
+                        <h3>Key Concepts</h3>
+                        <ul>
+                            <li><strong>Anti-inflammatory (AI) Biomolecules</strong>: Reduce inflammation by targeting mediators like cytokines (e.g., curcumin, NSAIDs).</li>
+                            <li><strong>Antioxidant (AO) Biomolecules</strong>: Neutralize free radicals to prevent damage (e.g., vitamins C and E, BHT).</li>
+                            <li><strong>SMILES Notation</strong>: Represents molecular structures as text (e.g., "CCO" for ethanol) for computational use.</li>
+                        </ul>
+                        <h3>Methodology</h3>
+                        <p class="text-black-50">
+                            The approach combines Large Language Models (LLMs) and Generative Adversarial Networks (GANs) across two pipelines: Data Generation and Data Prediction.
+                        </p>
+                        <h4>Data Collection</h4>
+                        <p class="text-black-50">
+                            📊 The team sourced 1,883 AI molecules from PubChem, noting properties like molecular weight and hydrophobicity. Limited data availability posed a challenge, addressed through augmentation.
+                        </p>
+                        <h4>Architectures</h4>
+                        <ol>
+                            <li><strong>LLM Fine-Tuning</strong>: ChemBERTa, pretrained on 77 million SMILES from PubChem, was fine-tuned to predict AI/AO properties.</li>
+                            <li><strong>GAN + LLM Hybrid</strong>: GPT-2_zinc_87m (pretrained on 480 million SMILES from ZINC) generates molecules, while a discriminator ensures validity—a fresh take on molecular design!</li>
+                        </ol>
+                        <h4>Pipelines</h4>
+                        <ol>
+                            <li><strong>Data Generation Pipeline</strong>:
+                                <ul>
+                                    <li><strong>Data Augmentation Layer (DAL)</strong>: Expands the dataset to 11,503 molecules via tautomers and permutations.</li>
+                                    <li><strong>GAN + LLM</strong>: Creates and filters new molecules.</li>
+                                    <li><strong>Linear Discriminant Analysis (LDA)</strong>: Keeps the most relevant features.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Data Prediction Pipeline</strong>: Fine-tunes ChemBERTa to predict AI/AO properties, enhancing the dataset further.</li>
+                        </ol>
+                        <h3>Experimental Results</h3>
+                        <p class="text-black-50">
+                            📈 Check out the key findings below in two handy tables!
+                        </p>
+                        <h4>Data Augmentation Layer (DAL)</h4>
+                        <table>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Initial Dataset</th>
+                                <th>Tautomers Only</th>
+                                <th>Permutations Only</th>
+                                <th>Tautomers + Permutations</th>
+                            </tr>
+                            <tr>
+                                <td>Number of Molecules</td>
+                                <td>1,883</td>
+                                <td>3,359</td>
+                                <td>10,015</td>
+                                <td>11,503</td>
+                            </tr>
+                            <tr>
+                                <td>Validity</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>Originality</td>
+                                <td>0%</td>
+                                <td>44%</td>
+                                <td>81%</td>
+                                <td>84%</td>
+                            </tr>
+                            <tr>
+                                <td>Diversity</td>
+                                <td>0.91</td>
+                                <td>0.90</td>
+                                <td>0.88</td>
+                                <td>0.89</td>
+                            </tr>
+                            <tr>
+                                <td>Drug-likeness</td>
+                                <td>79%</td>
+                                <td>74%</td>
+                                <td>72%</td>
+                                <td>72%</td>
+                            </tr>
+                        </table>
+                        <p class="text-black-50">
+                            <strong>Note</strong>: The DAL boosted the dataset size dramatically while keeping validity perfect, though drug-likeness dipped slightly.
+                        </p>
+                        <h4>Model Performance</h4>
+                        <table>
+                            <tr>
+                                <th>Metric</th>
+                                <th>LLM Alone</th>
+                                <th>GAN + LLM</th>
+                            </tr>
+                            <tr>
+                                <td>Validity</td>
+                                <td>16%</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>Originality</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>Diversity</td>
+                                <td>0.56</td>
+                                <td>0.85</td>
+                            </tr>
+                            <tr>
+                                <td>Drug-likeness</td>
+                                <td>16%</td>
+                                <td>95%</td>
+                            </tr>
+                            <tr>
+                                <td>Accuracy</td>
+                                <td>9%</td>
+                                <td>62% (76% with DAL)</td>
+                            </tr>
+                        </table>
+                        <p class="text-black-50">
+                            <strong>Note</strong>: The GAN + LLM hybrid shines with 100% validity and 95% drug-likeness, hitting 76% accuracy with DAL support.
+                        </p>
+                        <h3>Why It Matters</h3>
+                        <p class="text-black-50">
+                            🌟 This project speeds up biomolecule discovery for critical industries, offering a scalable, innovative framework with its GAN+LLM hybrid.
+                        </p>
+                        <h3>Challenges and Future Directions</h3>
+                        <p class="text-black-50">
+                            🚧 Data scarcity, 76% prediction accuracy, and complex biological interactions remain hurdles requiring more validation. Next steps could involve bigger datasets, reinforcement learning, or even quantum computing for better efficiency.
+                        </p>
+                        <a class="btn btn-primary" href="Projet_recherche.pdf" target="_blank">
+                            View Project PDF 📄
+                        </a>
                     </div>
                 </div>
             </div>
@@ -95,12 +245,11 @@
                     <a class="mx-2" href="https://github.com/qvelard" target="_blank"><i class="fab fa-github"></i></a>
                     <a class="mx-2" href="https://huggingface.co/Qvelard" target="_blank" style="font-size: 1.5rem;">🤗</a>
                     <a class="mx-2" href="www.linkedin.com/in/quentin-velard/" target="_blank"><i class="fab fa-linkedin"></i></a>
-
                 </div>
             </div>
         </section>
         <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Quentin Velard 2025</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright © Quentin Velard 2025</div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
