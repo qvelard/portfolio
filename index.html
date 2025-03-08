@@ -41,6 +41,22 @@
             html {
                 scroll-behavior: smooth; /* Défilement fluide */
             }
+            .intro-image-container {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                background: white; /* ou la couleur de votre arrière-plan */
+                border-radius: 50%;
+            }
+
+            .intro-image-container img {
+                width: 100%;
+                height: 90%;
+                object-fit: cover;
+                display: block;
+            }
         </style>
     </head>
     <body id="page-top">
@@ -84,12 +100,12 @@
                     <div class="col-lg-8">
                         <h2 class="text-white mb-4"></h2>
                         <p class="text-white-50">
-                            I am a 24-years-old machine learning engineer. I am passionate about AI for industry, Robotics and Quantum Machine Learning. I attended a French Grande École, equivalent to a highly selective MSc. I recently graduated and open to new opportunities. Please find some projects I have been working on below.
-                        </p>
-                    </div>
+                            I am a 24-years-old machine learning engineer. I am passionate about AI for industry, Robotics and Quantum Machine Learning. I attended a French Grande École, equivalent to a highly selective MSc. I recently graduated and am open to new opportunities. Please find some projects I have been working on below.                            </p>
+                     </div>
                 </div>
-                <img class="img-fluid" src="assets/img/image_intro.webp" alt="..."loading="lazy" />
-            </div>
+                <div class="intro-image-container">
+                    <img class="img-fluid" src="assets/img/image_intro.webp" alt="..." loading="lazy" />                    </div>
+                </div>
         </section>
         <!-- Projects-->
         <section class="projects-section bg-light" id="projects">
@@ -162,7 +178,7 @@
                             </div>
                             <p id="form-message" style="display: none; color: white; margin-top: 10px;"></p>
                         </form>
-        
+                        <!-- Script pour afficher le message de confirmation -->
                         <script>
                         function showMessage(event) {
                             event.preventDefault(); 
