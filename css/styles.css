@@ -95,6 +95,7 @@
   }
 }
 
+/* ✅ Garde ton style de base */
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -106,7 +107,59 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden; /* 🔥 Empêche le scroll horizontal */
 }
+
+/* ✅ Ajustements spécifiques pour Mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: calc(var(--bs-body-font-size) * 0.9); /* Réduit la taille du texte sur mobile */
+    padding: 10px; /* Ajoute un padding pour éviter que le texte touche les bords */
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button, a {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
+
+/* ✅ Optimisation pour Tablettes */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    font-size: var(--bs-body-font-size);
+    padding: 20px;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ✅ Styles pour Desktop */
+@media (min-width: 1025px) {
+  body {
+    font-size: var(--bs-body-font-size);
+    padding: 40px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 
 hr {
   margin: 1rem 0;
