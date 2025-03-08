@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      
+        <style>
+        .col-lg-6 img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+        }
+        .col-lg-6 {
+         display: flex;
+         align-items: stretch;
+        }
+        </style>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -27,25 +39,6 @@
                 text-decoration: none;
             }
             /* Styles pour le carrousel */
-            .carousel-item .row {
-                display: flex;
-                flex-direction: column; /* Empile les projets verticalement */
-                align-items: center;
-            }
-            .carousel-item .project {
-                height: 100%; /* Uniformise la hauteur */
-                width: 100%; /* Assure que le texte occupe toute la largeur disponible */
-            }
-            .carousel-item .project-text {
-                padding: 15px; /* Ajoute un espace interne */
-            }
-            .carousel-control-prev, .carousel-control-next {
-                width: 5%; /* Réduit la zone cliquable des flèches */
-            }
-            .carousel-control-prev-icon, .carousel-control-next-icon {
-                background-color: rgba(0, 0, 0, 0.5); /* Flèches semi-transparentes */
-                border-radius: 50%;
-            }
             html {
                 scroll-behavior: smooth; /* Défilement fluide */
             }
