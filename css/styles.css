@@ -95,7 +95,7 @@
   }
 }
 
-/* ✅ Garde ton style de base */
+/* ✅ Styles de base (inchangé sur PC) */
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -107,17 +107,19 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  overflow-x: hidden; /* 🔥 Empêche le scroll horizontal */
+  overflow-x: hidden;  /* 🔥 Empêche le scroll horizontal */
+  padding: 0;  /* 🔹 Ne change pas le padding sur PC */
 }
 
-/* ✅ Ajustements spécifiques pour Mobile */
+/* ✅ Mobile-First : Styles adaptés aux petits écrans */
 @media (max-width: 768px) {
   body {
-    font-size: calc(var(--bs-body-font-size) * 0.9); /* Réduit la taille du texte sur mobile */
-    padding: 10px; /* Ajoute un padding pour éviter que le texte touche les bords */
+    font-size: 15px;  /* 🔹 Réduit légèrement la taille du texte */
+    padding: 10px;  /* 🔹 Ajoute un padding pour éviter que le contenu touche les bords */
   }
 
   .container {
+    width: 100%;
     padding: 15px;
   }
 
@@ -125,6 +127,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
   }
 
   button, a {
@@ -133,32 +136,18 @@ body {
   }
 }
 
-/* ✅ Optimisation pour Tablettes */
+/* ✅ Tablettes : Légère adaptation sans toucher le design PC */
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
-    font-size: var(--bs-body-font-size);
-    padding: 20px;
+    font-size: 16px; /* Garde la taille normale */
   }
 
   .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-/* ✅ Styles pour Desktop */
-@media (min-width: 1025px) {
-  body {
-    font-size: var(--bs-body-font-size);
-    padding: 40px;
-  }
-
-  .container {
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
   }
 }
+
 
 
 hr {
