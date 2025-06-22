@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>RAG Chatbot - Quentin Velard</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Quentin Velard</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#signup">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                    <h1 class="mx-auto my-0 text-uppercase">RAG chatbot with Langchain.js</h1>
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5">Inspired by a youtube video on freeCodeCamp from Aniaka Bow</h2>
+                </div>
+            </div>
+        </header>
+        <!-- Content-->
+        <section class="content-section bg-light" id="content">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="text-black mb-4">F1 RAG Chatbot: Retrieval Augmented Generation Architecture 🏎️</h2>
+                
+                <p class="text-black-50">
+                    The F1 RAG Chatbot combines advanced retrieval techniques with generative AI to deliver accurate Formula 1 information. By implementing a Retrieval Augmented Generation (RAG) architecture, the system overcomes the limitations of traditional LLMs by grounding responses in a specialized F1 knowledge base.
+                </p>
+
+                <h3>1. Vector Database (Astra DB)</h3>
+                <p class="text-black-50">
+                    At the core of the system is a vector database that stores Formula 1 documents as high-dimensional embeddings. Each document is transformed into a 1536-dimensional vector that captures its semantic meaning, enabling similarity-based search beyond simple keyword matching.
+                </p>
+                <p class="text-black-50">
+                    The database schema includes not just the embedding vectors but also metadata like source, date, and category, allowing for comprehensive retrieval and attribution of information. This foundation ensures the chatbot can access specific F1 knowledge that may not be present in general LLM training data.
+                </p>
+                <pre><code>// Example document schema in Astra DB
+{
+  id: "doc-124578",
+  text: "The 2025 Formula 1 season will feature 24 races, including the new Madrid Grand Prix...",
+  source: "Formula1.com",
+  date: "2024-06-10",
+  category: "calendar",
+  $vector: [0.023, -0.112, 0.438, ...] // 1536-dim vector
+}</code></pre>
+
+                <h3>2. Embedding Generation Pipeline</h3>
+                <p class="text-black-50">
+                    The system uses OpenAI's text-embedding-3-small model to convert both F1 documents and user queries into the same vector space. This common mathematical representation enables semantic matching where queries find relevant information even when using different terminology.
+                </p>
+                <p class="text-black-50">
+                    During indexing, documents are processed in batches to optimize API usage, with each document carefully segmented to maintain context while fitting within the model's token limits. For live queries, the embedding process transforms user questions into the same vector format to enable similarity search.
+                </p>
+                <pre><code>// Converting user queries to embeddings
+async function generateEmbedding(text) {
+  const response = await openai.embeddings.create({
+    model: "text-embedding-3-small",
+    input: text,
+    dimensions: 1536
+  });
+  return response.data[0].embedding;
+}</code></pre>
+
+                <h3>3. Context Retrieval System</h3>
+                <p class="text-black-50">
+                    The retrieval system performs vector similarity search to find content relevant to user questions. Rather than simple retrieval, the system employs sophisticated ranking and filtering:
+                </p>
+                <ul class="text-black-50">
+                    <li><strong>Similarity Threshold Filtering</strong> - Only documents above 0.70 cosine similarity are considered</li>
+                    <li><strong>Source Authority Weighting</strong> - Official F1 sources receive priority in retrieval</li>
+                    <li><strong>Recency Prioritization</strong> - More recent documents are favored for time-sensitive topics</li>
+                    <li><strong>Contextual Diversity</strong> - The system seeks to include varied perspectives when appropriate</li>
+                </ul>
+                <p class="text-black-50">
+                    This carefully tuned retrieval process ensures that the LLM receives the most relevant, accurate, and up-to-date Formula 1 information as context for generating responses.
+                </p>
+
+                <h3>4. Language Model Integration</h3>
+                <p class="text-black-50">
+                    The system integrates with GPT-4 through a carefully structured prompt architecture that consists of:
+                </p>
+                <ol class="text-black-50">
+                    <li>A system prompt establishing the AI as an F1 expert with specific guidelines</li>
+                    <li>Retrieved context from the vector database formatted with source attribution</li>
+                    <li>Conversation history to maintain dialogue coherence</li>
+                    <li>The current user question</li>
+                </ol>
+                <p class="text-black-50">
+                    Response streaming is implemented for enhanced user experience, delivering content as it's generated rather than waiting for complete responses. Parameters like temperature (0.7) are tuned to balance creativity with factual accuracy in F1 discussions.
+                </p>
+                <pre><code>// Structured prompt for GPT-4
+const promptMessages = [
+  { role: "system", content: "You are F1GPT, an expert on Formula 1 racing..." },
+  { role: "system", content: `CONTEXT INFORMATION:\n${retrievedContext}` },
+  ...conversationHistory,
+  { role: "user", content: userQuestion }
+];</code></pre>
+
+                <h3>5. Data Flow Architecture</h3>
+                <p class="text-black-50">
+                    The complete RAG pipeline follows these steps during each interaction:
+                </p>
+                <ol class="text-black-50">
+                    <li><strong>Query Processing</strong> - User's F1 question is received by the Next.js API route</li>
+                    <li><strong>Embedding Generation</strong> - The question is transformed into a vector embedding</li>
+                    <li><strong>Similarity Search</strong> - The vector database is queried for relevant F1 content</li>
+                    <li><strong>Context Assembly</strong> - Retrieved documents are formatted with source information</li>
+                    <li><strong>Prompt Construction</strong> - A structured prompt combines the context, conversation history, and user question</li>
+                    <li><strong>Response Generation</strong> - GPT-4 generates a response grounded in the provided context</li>
+                    <li><strong>Streaming Delivery</strong> - The response is streamed token-by-token to the user interface</li>
+                </ol>
+                <p class="text-black-50">
+                    This architecture ensures that responses are informed by the latest F1 information while maintaining the natural conversational abilities of advanced language models.
+                </p>
+
+                <h3>6. Frontend Implementation</h3>
+                <p class="text-black-50">
+                    The React-based frontend creates an intuitive chat experience using the Vercel AI SDK. Key features include:
+                </p>
+                <ul class="text-black-50">
+                    <li><strong>Real-time Response Streaming</strong> - Text appears progressively for immediate feedback</li>
+                    <li><strong>Context-aware Suggestions</strong> - Follow-up questions are generated based on conversation context</li>
+                    <li><strong>Mobile-responsive Design</strong> - Layout adapts to different screen sizes with optimized interactions</li>
+                    <li><strong>F1 Theming</strong> - Visual design elements reflect Formula 1 branding and aesthetics</li>
+                </ul>
+                <p class="text-black-50">
+                    The user interface manages state using React hooks and provides smooth transitions between conversation states, with automatic scrolling to follow new messages.
+                </p>
+
+                <h3>7. Knowledge Management</h3>
+                <p class="text-black-50">
+                    A sophisticated document processing pipeline maintains the F1 knowledge base:
+                </p>
+                <ul class="text-black-50">
+                    <li><strong>Content Curation</strong> - F1 articles, regulations, statistics, and historical data are sourced from authoritative sites</li>
+                    <li><strong>Document Processing</strong> - Content is cleaned, segmented, and prepared for embedding</li>
+                    <li><strong>Batched Indexing</strong> - Documents are embedded and stored in batches of 20 for efficiency</li>
+                    <li><strong>Regular Updates</strong> - The knowledge base is refreshed with new F1 content after races and announcements</li>
+                </ul>
+                <p class="text-black-50">
+                    This systematic approach to knowledge management ensures that the chatbot has access to comprehensive and current Formula 1 information.
+                </p>
+
+                <h3>8. Technical Optimizations</h3>
+                <p class="text-black-50">
+                    The implementation includes several performance optimizations:
+                </p>
+                <ul class="text-black-50">
+                    <li><strong>Vector Search Efficiency</strong> - Approximate nearest neighbor algorithms accelerate similarity search</li>
+                    <li><strong>Response Caching</strong> - Common F1 questions are cached to reduce embedding and retrieval costs</li>
+                    <li><strong>Incremental Loading</strong> - UI components load progressively to improve perceived performance</li>
+                    <li><strong>Error Handling</strong> - Robust fallback mechanisms ensure service continuity during API disruptions</li>
+                    <li><strong>Resource Conservation</strong> - Careful management of API calls to balance cost and performance</li>
+                </ul>
+                <p class="text-black-50">
+                    These optimizations create a responsive, reliable chatbot experience even under high load conditions.
+                </p>
+
+                <h3>9. Deployment Infrastructure</h3>
+                <p class="text-black-50">
+                    The F1 RAG Chatbot is deployed on Railway with containerization for consistent environments:
+                </p>
+                <ul class="text-black-50">
+                    <li><strong>Docker Containerization</strong> - Ensures consistent runtime across environments</li>
+                    <li><strong>Environment Variable Management</strong> - Secures API keys and configuration</li>
+                    <li><strong>Auto-scaling</strong> - Adapts to traffic patterns for cost efficiency</li>
+                    <li><strong>Monitoring</strong> - Tracks usage patterns and performance metrics</li>
+                </ul>
+                <p class="text-black-50">
+                    This infrastructure provides a stable foundation for delivering the F1 chatbot to global users with minimal latency and high reliability.
+                </p>
+
+                <h3>10. Conclusion and Future Enhancements</h3>
+                <p class="text-black-50">
+                    The F1 RAG architecture delivers a significant improvement in accuracy and relevance for Formula 1 information compared to general-purpose chatbots. Future enhancements could include:
+                </p>
+                <ul class="text-black-50">
+                    <li><strong>Multi-modal Support</strong> - Visual recognition of F1 car components and track layouts</li>
+                    <li><strong>Live Data Integration</strong> - Real-time race information during Grand Prix weekends</li>
+                    <li><strong>Personalization</strong> - User preference tracking for favorite teams and drivers</li>
+                    <li><strong>Advanced Analytics</strong> - F1 performance predictions and statistical analysis</li>
+                </ul>
+                <p class="text-black-50">
+                    By combining vector search with generative AI, this architecture creates a specialized knowledge system that delivers the kind of detailed, accurate F1 information that passionate fans demand.
+                </p>
+
+                <p class="text-black-50">
+                   Want to give it a try? You can access the F1 RAG Chatbot app at the link below. 
+                    <a class="btn btn-primary" href="ragchatbot-app.velard.fr" target="_blank">F1 RAG Chatbot app</a>
+                </p>
+        <!-- Contact-->
+        <section class="contact-section bg-black">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Address</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">Paris, France</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-envelope text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Email</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50"><a href="#!">quentin.velard1@gmail.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">Phone</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social d-flex justify-content-center mt-4">
+                    <a class="mx-2" href="https://twitter.com/quentinvelard" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a class="mx-2" href="https://github.com/qvelard" target="_blank"><i class="fab fa-github"></i></a>
+                    <a class="mx-2" href="https://huggingface.co/Qvelard" target="_blank" style="font-size: 1.5rem;">🤗</a>
+                    <a class="mx-2" href="www.linkedin.com/in/quentin-velard/" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Quentin Velard 2025</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
