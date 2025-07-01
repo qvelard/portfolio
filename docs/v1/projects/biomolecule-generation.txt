@@ -1,11 +1,11 @@
 1:HL["/portfolio/_next/static/css/762f8e86a083f06c.css","style"]
-0:["LqUSzGSrT8YYrN5D0R5ct",[[["",{"children":["v1",{"children":["projects",{"children":[["slug","biomolecule-generation","d"],{"children":["__PAGE__?{\"slug\":\"biomolecule-generation\"}",{}]}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/portfolio/_next/static/css/762f8e86a083f06c.css","precedence":"next"}]],"$L3"]]]]
+0:["GJLBgSY7plga2fkKNc0uD",[[["",{"children":["v1",{"children":["projects",{"children":[["slug","biomolecule-generation","d"],{"children":["__PAGE__?{\"slug\":\"biomolecule-generation\"}",{}]}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/portfolio/_next/static/css/762f8e86a083f06c.css","precedence":"next"}]],"$L3"]]]]
 4:"$Sreact.suspense"
 5:I{"id":3388,"chunks":["539:static/chunks/539-e56298a918be90c1.js","367:static/chunks/app/v1/projects/[slug]/page-f5c34de6793e0dad.js"],"name":"NoSSR","async":false}
 6:I{"id":4657,"chunks":["424:static/chunks/424-9e1747f41e11bb5c.js","185:static/chunks/app/layout-e633e006c71634d9.js"],"name":"ThemeProvider","async":false}
 7:I{"id":1443,"chunks":["272:static/chunks/webpack-2b153ba51b2a0824.js","971:static/chunks/fd9d1056-cd9a5b71416a037e.js","864:static/chunks/864-386859af4cd32bc0.js"],"name":"","async":false}
 8:I{"id":8639,"chunks":["272:static/chunks/webpack-2b153ba51b2a0824.js","971:static/chunks/fd9d1056-cd9a5b71416a037e.js","864:static/chunks/864-386859af4cd32bc0.js"],"name":"","async":false}
-9:I{"id":6620,"chunks":["539:static/chunks/539-e56298a918be90c1.js","680:static/chunks/app/v1/layout-7f82bc0e1189caea.js"],"name":"SiteHeader","async":false}
+9:I{"id":6620,"chunks":["539:static/chunks/539-e56298a918be90c1.js","680:static/chunks/app/v1/layout-e0ef3ce26206feda.js"],"name":"SiteHeader","async":false}
 b:I{"id":4724,"chunks":["539:static/chunks/539-e56298a918be90c1.js","367:static/chunks/app/v1/projects/[slug]/page-f5c34de6793e0dad.js"],"name":"","async":false}
 c:I{"id":6844,"chunks":["539:static/chunks/539-e56298a918be90c1.js","367:static/chunks/app/v1/projects/[slug]/page-f5c34de6793e0dad.js"],"name":"ProjectGallery","async":false}
 d:I{"id":891,"chunks":["539:static/chunks/539-e56298a918be90c1.js","367:static/chunks/app/v1/projects/[slug]/page-f5c34de6793e0dad.js"],"name":"Separator","async":false}
