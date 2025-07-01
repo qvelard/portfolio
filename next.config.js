@@ -6,7 +6,7 @@ const nextConfig = {
     unoptimized: true,
   },
   basePath: process.env.GITHUB_PAGES ? '/portfolio' : '',
-  assetPrefix: process.env.GITHUB_PAGES ? '/portfolio/' : '',
+  assetPrefix: process.env.GITHUB_PAGES ? '/portfolio' : '',
 };
 
 module.exports = nextConfig;

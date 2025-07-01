@@ -1,4 +1,4 @@
-# Portfolio
+# Portfolio - Quentin Velard
 
 Ce projet est un portfolio personnel réalisé avec Next.js, Tailwind CSS et déployé sur GitHub Pages.
 
@@ -6,6 +6,7 @@ Ce projet est un portfolio personnel réalisé avec Next.js, Tailwind CSS et dé
 - **Stack** : Next.js 13+, React, TypeScript, Tailwind CSS
 - **Déploiement statique** : GitHub Pages (branche `main`, dossier `/docs`)
 - **Formulaire de contact** : Intégré avec [Formspree](https://formspree.io/)
+- **Thème** : Dark mode par défaut avec toggle
 
 ---
 
@@ -13,8 +14,8 @@ Ce projet est un portfolio personnel réalisé avec Next.js, Tailwind CSS et dé
 
 1. Clone le repo :
    ```bash
-   git clone https://github.com/<ton-pseudo>/<nom-du-repo>.git
-   cd <nom-du-repo>
+   git clone https://github.com/qvelard/portfolio.git
+   cd portfolio
    ```
 2. Installe les dépendances :
    ```bash
@@ -32,11 +33,31 @@ Le site sera accessible sur [http://localhost:3000](http://localhost:3000).
 
 ---
 
-## 🏗️ Export statique & déploiement GitHub Pages
+## 🚀 Déploiement GitHub Pages
+
+### Scripts de déploiement automatique
+
+```bash
+# Déploiement complet (build + export + git)
+npm run deploy:full
+
+# Test de déploiement (sans git)
+npm run deploy:test
+
+# Copie seulement (sans build, utile si build déjà fait)
+npm run deploy:copy
+
+# Build + copie (sans git, pour tester)
+npm run deploy:build
+```
+
+> 📁 **Scripts organisés** : Tous les scripts de déploiement sont dans le dossier `scripts/`
+
+### Déploiement manuel
 
 1. **Exporter le site statique**
    ```bash
-   npm run build
+   npm run build:github
    npm run export
    ```
    Le site statique est généré dans le dossier `out/`.
@@ -44,7 +65,7 @@ Le site sera accessible sur [http://localhost:3000](http://localhost:3000).
 2. **Déplacer le dossier `out` dans `/docs`**
    ```bash
    rm -rf docs
-   mv out docs
+   cp -r out docs
    ```
 
 3. **Commit & push**
@@ -54,13 +75,13 @@ Le site sera accessible sur [http://localhost:3000](http://localhost:3000).
    git push
    ```
 
-4. **Configurer GitHub Pages**
-   - Settings > Pages
-   - Source : `main` branch, `/docs` folder
+### Configuration GitHub Pages
+- Settings > Pages
+- Source : `main` branch, `/docs` folder
 
 Le site sera accessible à :
 ```
-https://<ton-pseudo-github>.github.io/<nom-du-repo>/
+https://qvelard.github.io/portfolio/
 ```
 
 ---
@@ -78,6 +99,28 @@ Le formulaire de contact utilise [Formspree](https://formspree.io/f/mqapznyb) po
 - Modifie le contenu dans le dossier `app/` et les composants dans `components/`.
 - Les projets sont gérés dans `lib/projects.ts`.
 - Les styles globaux sont dans `app/globals.css`.
+
+---
+
+## 🔧 Scripts disponibles
+
+```bash
+# Développement
+npm run dev          # Serveur de développement
+npm run build        # Build de production
+npm run start        # Serveur de production
+npm run lint         # Linting
+
+# Export et déploiement
+npm run build:github # Build avec config GitHub Pages
+npm run export       # Export statique
+npm run deploy:full  # Déploiement complet
+npm run deploy:test  # Test sans git
+npm run serve:local  # Serveur local pour tester l'export
+
+# Tests
+npm run test:export  # Build + serveur local
+```
 
 ---
 
