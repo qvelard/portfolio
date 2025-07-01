@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
-    "deploy": "npm run build && npm run export"
+    "build:github": "cross-env GITHUB_PAGES=true npm run build",
+    "deploy": "npm run build:github && npm run export",
+    "serve:local": "npx serve out -l 3001",
+    "test:export": "npm run build && npx serve out -l 3001",
+    "deploy:full": "powershell -ExecutionPolicy Bypass -File deploy.ps1"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -70,5 +74,8 @@
     "typescript": "5.2.2",
     "vaul": "^0.9.9",
     "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

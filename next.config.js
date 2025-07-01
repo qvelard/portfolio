@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
-const isGithubPages = process.env.GITHUB_PAGES === 'true';
-
 const nextConfig = {
-  output: 'export',
-  basePath: isGithubPages ? '/portfolio' : '',
-  assetPrefix: isGithubPages ? '/portfolio/' : '',
-  
+  output: 'export', // If you are using Next.js 13 or later with static export
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+  basePath: process.env.GITHUB_PAGES ? '/portfolio' : '',
+  assetPrefix: process.env.GITHUB_PAGES ? '/portfolio/' : '',
 };
 
 module.exports = nextConfig;

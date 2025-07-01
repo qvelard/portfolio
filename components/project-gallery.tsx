@@ -31,12 +31,12 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
     <>
       <div className="space-y-4">
         {/* Main Image */}
-        <div className="relative aspect-video overflow-hidden rounded-lg bg-muted">
+        <div className="relative aspect-video overflow-hidden rounded-lg bg-muted flex items-center justify-center">
           <motion.img
             key={currentIndex}
             src={images[currentIndex]}
             alt={`${title} - Screenshot ${currentIndex + 1}`}
-            className="w-full h-full object-cover cursor-pointer"
+            className="max-h-full max-w-full object-contain cursor-pointer mx-auto block"
             onClick={() => openFullscreen(currentIndex)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -83,7 +83,7 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
                 <img
                   src={image}
                   alt={`${title} - Thumbnail ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="max-h-full max-w-full object-contain mx-auto block"
                 />
               </motion.button>
             ))}
@@ -113,7 +113,7 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
             <motion.img
               src={images[currentIndex]}
               alt={`${title} - Screenshot ${currentIndex + 1}`}
-              className="max-w-full max-h-full object-contain"
+              className="max-h-full max-w-full object-contain mx-auto block"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}

@@ -32,7 +32,7 @@ export function generateMetadata({ params }: ProjectPageProps) {
   }
 
   return {
-    title: `${project.title} - Alex Johnson`,
+    title: `${project.title} - Quentin Velard`,
     description: project.description,
     openGraph: {
       title: project.title,

@@ -35,7 +35,7 @@ export function SiteHeader() {
           >
             <Code2 className="h-6 w-6 text-primary" />
           </motion.div>
-          <span className="font-bold text-xl">Alex Johnson</span>
+          <span className="font-bold text-xl">Quentin Velard</span>
         </Link>
 
         {/* Desktop Navigation */}

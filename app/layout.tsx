@@ -12,24 +12,24 @@ const ThemeProvider = dynamic(
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Alex Johnson - Full-Stack Developer',
-  description: 'Full-Stack Developer specializing in React, Node.js, and modern web technologies. Building exceptional digital experiences.',
-  keywords: ['developer', 'full-stack', 'react', 'node.js', 'web development', 'portfolio'],
-  authors: [{ name: 'Alex Johnson' }],
-  creator: 'Alex Johnson',
+  title: 'Quentin Velard - Machine Learning',
+  description: 'I am a 24-years-old machine learning engineer. I am passionate about AI for industry, Robotics and Quantum Machine Learning. I attended a French Grande École, equivalent to a highly selective MSc. I recently graduated and am open to new opportunities. Please find some projects I have been working on below.',
+  keywords: ['machine learning', 'quantum machine learning', 'robotics', 'portfolio'],
+  authors: [{ name: 'Quentin Velard' }],
+  creator: 'Quentin Velard',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://alexjohnson.dev',
-    title: 'Alex Johnson - Full-Stack Developer',
-    description: 'Full-Stack Developer specializing in React, Node.js, and modern web technologies. Building exceptional digital experiences.',
-    siteName: 'Alex Johnson Portfolio',
+    url: 'https://velard.fr',
+    title: 'Quentin Velard - Machine Learning',
+    description: 'I am a 24-years-old machine learning engineer. I am passionate about AI for industry, Robotics and Quantum Machine Learning. I attended a French Grande École, equivalent to a highly selective MSc. I recently graduated and am open to new opportunities. Please find some projects I have been working on below.',
+    siteName: 'Quentin Velard Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alex Johnson - Full-Stack Developer',
-    description: 'Full-Stack Developer specializing in React, Node.js, and modern web technologies.',
-    creator: '@alexjohnsondev',
+    title: 'Quentin Velard - Machine Learning',
+    description: 'I am a 24-years-old machine learning engineer. I am passionate about AI for industry, Robotics and Quantum Machine Learning. I attended a French Grande École, equivalent to a highly selective MSc. I recently graduated and am open to new opportunities. Please find some projects I have been working on below.',
+    creator: '@quentinvelard',
   },
   robots: {
     index: true,
@@ -54,8 +54,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

@@ -1,26 +1,31 @@
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, X, Mail } from 'lucide-react';
 
 const socialLinks = [
   {
     name: 'GitHub',
-    href: 'https://github.com/alexjohnson',
+    href: 'https://github.com/qvelard',
     icon: Github,
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/alexjohnson',
+    href: 'www.linkedin.com/in/quentin-velard',
     icon: Linkedin,
   },
   {
     name: 'Twitter',
-    href: 'https://twitter.com/alexjohnsondev',
-    icon: Twitter,
+    href: 'https://twitter.com/quentinvelard',
+    icon: X,
   },
   {
     name: 'Email',
-    href: 'mailto:alex@alexjohnson.dev',
+    href: 'mailto:quentin.velard1@gmail.com',
     icon: Mail,
+  },
+  {
+    name: 'Hugging Face',
+    href: 'https://huggingface.co/qvelard',
+    icon: () => <span style={{fontSize: 20}}>🤗</span>,
   },
 ];
 
@@ -31,10 +36,10 @@ export function SiteFooter() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:items-start">
           <div className="flex flex-col items-center gap-2 md:items-start">
             <Link href="/v1" className="font-bold text-lg">
-              Alex Johnson
+              Quentin Velard
             </Link>
             <p className="text-sm text-muted-foreground">
-              Building exceptional digital experiences
+              Data Scientist
             </p>
           </div>
           
@@ -58,7 +63,7 @@ export function SiteFooter() {
         </div>
         
         <div className="mt-6 border-t pt-6 text-center text-sm text-muted-foreground md:text-left">
-          <p>© {new Date().getFullYear()} Alex Johnson. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Quentin Velard. All rights reserved.</p>
         </div>
       </div>
     </footer>

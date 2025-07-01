@@ -72,7 +72,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Alex Johnson
+                Quentin Velard
               </motion.h1>
               <motion.p 
                 className="text-xl text-muted-foreground sm:text-2xl"
@@ -80,7 +80,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Full-Stack Engineer
+                Data Scientist
               </motion.p>
             </div>
             
@@ -90,9 +90,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              I craft exceptional digital experiences through innovative web development, 
-              combining technical expertise with creative problem-solving to build scalable, 
-              user-centric applications.
+              I am a data scientist with a passion for building scalable, user-centric applications.
             </motion.p>
             
             <motion.div 
@@ -125,8 +123,10 @@ export default function HomePage() {
             <div className="relative mx-auto w-64 h-64 sm:w-80 sm:h-80">
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full opacity-20 blur-3xl"></div>
               <img
-                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Alex Johnson"
+                src="/v1/pdp.jpg"
+                alt="Quentin Velard"
+                width={320}
+                height={320}
                 className="relative w-full h-full object-cover rounded-full border-4 border-background shadow-2xl"
               />
             </div>
@@ -146,9 +146,7 @@ export default function HomePage() {
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About Me</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              With over 5 years of experience in full-stack development, I specialize in creating 
-              robust, scalable web applications using modern technologies. I&apos;m passionate about 
-              clean code, user experience, and continuous learning.
+              I am a data scientist with a passion for building scalable, user-centric applications.
             </p>
           </div>
 
@@ -264,9 +262,9 @@ export default function HomePage() {
 
           <div className="text-center">
             <Button asChild variant="outline" size="lg">
-              <a href="mailto:alex@alexjohnson.dev">
+              <a href="mailto:quentin@velard.fr">
                 <Mail className="mr-2 h-4 w-4" />
-                alex@alexjohnson.dev
+                quentin@velard.fr
               </a>
             </Button>
           </div>

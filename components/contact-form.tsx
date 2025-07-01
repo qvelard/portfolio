@@ -21,7 +21,7 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [state, setState] = useState("idle");
   
   const {
     register,
@@ -32,21 +32,32 @@ export function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    console.log('Contact form submission:', data);
-    toast.success('Message sent successfully! I\'ll get back to you soon.');
-    reset();
-    setIsSubmitting(false);
-  };
+  async function handleSubmitForm(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setState("loading");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const res = await fetch("https://formspree.io/f/mqapznyb", {
+      method: "POST",
+      body: data,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (res.ok) {
+      setState("success");
+      reset();
+      toast.success('Message sent successfully! I\'ll get back to you soon.');
+    } else {
+      setState("error");
+    }
+  }
 
   return (
     <motion.form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmitForm}
       className="space-y-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -95,8 +106,8 @@ export function ContactForm() {
         )}
       </div>
       
-      <Button type="submit" className="w-full group" disabled={isSubmitting}>
-        {isSubmitting ? (
+      <Button type="submit" className="w-full group" disabled={state === "loading"}>
+        {state === "loading" ? (
           'Sending...'
         ) : (
           <>
@@ -105,6 +116,8 @@ export function ContactForm() {
           </>
         )}
       </Button>
+      {state === "success" && <p>Merci pour votre message !</p>}
+      {state === "error" && <p>Erreur lors de l&apos;envoi.</p>}
     </motion.form>
   );
 }

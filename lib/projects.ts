@@ -19,9 +19,9 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'E-Commerce Dashboard',
-    slug: 'ecommerce-dashboard',
-    description: 'A comprehensive admin dashboard for managing online stores with real-time analytics.',
+    title: 'Biomolecule Generation with Anti-oxydant and Anti-inflammatory properties',
+    slug: 'biomolecule-generation',
+    description: 'his Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabanes at École des Mines de Nancy, leverages deep learning to generate biomolecules with anti-inflammatory (AI) and antioxidant (AO) properties. This work supports the "Biomolecules 4 Bioeconomy" framework, with potential applications in pharmaceuticals, agrochemicals, and cosmetics.',
     longDescription: `
       Built a full-featured e-commerce dashboard that provides store owners with comprehensive insights into their business. 
       The application features real-time sales analytics, inventory management, customer insights, and order processing capabilities.
@@ -32,7 +32,7 @@ export const projects: Project[] = [
       The solution leverages React with TypeScript for type safety, Socket.io for real-time updates, and a microservices architecture 
       to ensure scalability and maintainability.
     `,
-    image: 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: '/v1/biomol.webp',
     images: [
       'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -48,21 +48,54 @@ export const projects: Project[] = [
   },
   {
     id: '2',
-    title: 'Task Management Mobile App',
-    slug: 'task-management-app',
-    description: 'Cross-platform mobile app for team collaboration and project management.',
-    longDescription: `
-      Developed a cross-platform mobile application that streamlines team collaboration and project management. 
-      The app features intuitive task creation, assignment, and tracking capabilities with offline support.
-      
-      The challenge was creating a seamless user experience that works offline while maintaining data consistency 
-      when connectivity is restored. The app includes push notifications, file attachments, and integration with 
-      popular calendar applications.
-      
-      Built using React Native for cross-platform compatibility, with a robust offline-first architecture using 
-      Redux Persist and background sync capabilities.
-    `,
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'Project QILLER',
+    slug: 'project-qiller',
+    description: 'This Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabanes at École des Mines de Nancy, leverages deep learning to generate biomolecules with anti-inflammatory (AI) and antioxidant (AO) properties. This work supports the "Biomolecules 4 Bioeconomy" framework, with potential applications in pharmaceuticals, agrochemicals, and cosmetics.',
+    longDescription: [
+      'Catastrophic forgetting is a key problem this paper addresses. In both classical and quantum machine learning, this happens when a model learns new information but loses its ability to remember older knowledge—like forgetting how to ride a bike after learning to drive a car. The authors show this issue exists in variational quantum algorithms (VQAs), a type of quantum machine learning model, and aim to fix it.',
+      '',
+      'QILLER combines several cool techniques to solve this: representation learning, knowledge distillation, and exemplar memory. These work together to help the model learn new tasks incrementally while holding onto past knowledge, all within a quantum computing framework.',
+      '',
+      'The goal is lifelong learning, inspired by how humans can keep learning new skills without forgetting old ones. The authors test their method on datasets like MNIST (handwritten digits), FMNIST (fashion items), KMNIST (Japanese characters), and CIFAR-10 (color images), showing it outperforms other approaches.',
+      '',
+      '🗝️ Key Concepts Explained',
+      'Catastrophic Forgetting: Imagine training a quantum classifier to recognize quantum phases of matter (a physics task), and it works great. Then, you train it on handwritten digits (like 0s and 1s). Suddenly, it forgets the physics task entirely! That\'s catastrophic forgetting, and the paper gives this exact example from prior research to highlight the issue in VQAs.',
+      '',
+      'Representation Learning: This is about transforming messy data (like images) into a simpler, more useful form—like summarizing a book into key points. Here, it\'s done with a quantum autoencoder, which compresses classical data into a quantum state that\'s easier for the model to work with.',
+      '',
+      'Knowledge Distillation: Think of it as a student learning from a teacher. The "teacher" is the model\'s past knowledge, and the "student" is the updated model. It uses a special loss function to ensure the new model mimics what the old one knew, preventing forgetting.',
+      '',
+      'Exemplar Memory: This acts like a scrapbook of important examples. It stores a small, representative set of samples from old tasks (picked using a method called herding selection) so the model can revisit them and remember past lessons.',
+      '',
+      '🔧 How QILLER Works',
+      'Two-Part Architecture: QILLER splits into a feature extractor and a classifier. The feature extractor uses a quantum autoencoder (QAE) to turn classical data into quantum features—a 64-dimensional vector—trained once with supervised contrastive loss and then frozen. The classifier, a Variational Quantum Classifier (VQC), predicts classes using these features.',
+      '',
+      'Incremental Learning Steps: It starts by training on the first task with cross-entropy loss. As new tasks come in, the VQC updates using a mix of cross-entropy loss (for new classes) and distillation loss (to keep old knowledge), referencing past outputs stored in exemplar memory. After each step, the memory updates with new representative samples.',
+      '',
+      'Loss Function Magic: The loss combines cross-entropy for new learning and distillation to retain old knowledge, with a temperature parameter (T=2) balancing it. It\'s optimized with COBYLA, a gradient-free method suited for quantum circuits.',
+      '',
+      '📈 Experimental Results',
+      'Impressive Numbers: QILLER was tested on MNIST, FMNIST, KMNIST, and CIFAR-10. On MNIST, it hit 29% accuracy for 10 classes (1-class-per-step) versus 9-27% for rivals like SCL-VQC, iCaRL-VQC, and TL-VQC. On FMNIST, it scored 28%, beating TL-VQC (19%). KMNIST saw 24%, topping others (12-15%). CIFAR-10 achieved 16%, outperforming TL-VQC (9%).',
+      '',
+      'Real Quantum Hardware: Tested on Amazon Braket\'s IonQ Harmony (11 qubits) and simulators, it proves practical even with limits like resizing images to 16x16 pixels.',
+      '',
+      '⚠️ Not Perfect Yet: Accuracies drop as classes grow due to quantum hardware constraints—still a work in progress!',
+      '',
+      '🌟 Why It\'s Awesome',
+      'Real-World Ready: QILLER tackles continuous data streams (think smart cities or social media) where new info keeps coming, unlike older methods that struggle with scalability or forget too much.',
+      '',
+      'Efficient Design: It uses fewer qubits and discards old VQCs after training, saving quantum resources while still learning effectively.',
+      '',
+      'Beats the Competition: Outperforms methods like iCaRL-VQC (memory-heavy) and SCL-VQC (less adaptive) by balancing feature extraction and classification in a quantum way.',
+      '',
+      '🚧 Challenges and Future',
+      'Hardware Limits: Quantum hardware keeps accuracies low for many classes—think 16-29% for 10 classes versus classical models\' 90%+. Noise and small qubit counts are the culprits.',
+      '',
+      'Future Potential: As quantum tech improves, QILLER could scale to bigger, more complex tasks, making quantum lifelong learning a reality.',
+      '',
+      'For more detailed insights, you can download the full project report below:'
+    ].join('\n'),
+    image: '/v1/quiller.webp',
     images: [
       'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -70,7 +103,7 @@ export const projects: Project[] = [
     ],
     technologies: ['React Native', 'TypeScript', 'Firebase', 'Redux', 'Expo'],
     category: 'mobile',
-    github: 'https://github.com/alexjohnson/task-management-app',
+    github: 'https://github.com/qvelard/task-management-app',
     demo: 'https://apps.apple.com/app/taskflow',
     date: '2023',
     role: 'Mobile Developer',
@@ -78,124 +111,140 @@ export const projects: Project[] = [
   },
   {
     id: '3',
-    title: 'AI Code Assistant',
-    slug: 'ai-code-assistant',
-    description: 'VS Code extension that provides intelligent code suggestions and refactoring.',
-    longDescription: `
-      Created a VS Code extension that leverages AI to provide intelligent code suggestions, automated refactoring, 
-      and code quality improvements. The extension analyzes code patterns and suggests optimizations in real-time.
-      
-      The main challenge was integrating with the VS Code API while maintaining performance and providing contextually 
-      relevant suggestions. The extension includes features like automatic code formatting, documentation generation, 
-      and security vulnerability detection.
-      
-      Built with TypeScript and integrates with OpenAI's API for code analysis, with careful attention to privacy 
-      and security considerations.
-    `,
-    image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'F1 RAG Chatbot: Formula 1 Retrieval-Augmented Generation System',
+    slug: 'f1-rag-chatbot',
+    description: 'Le F1 RAG Chatbot combine une base de connaissances vectorielle, un pipeline d\'embedddings, un système de retrieval avancé et GPT-4 pour fournir des réponses précises et actualisées sur la Formule 1.',
+    longDescription: [
+      '1. Vector Database (Astra DB)',
+      'At the core of the system is a vector database that stores Formula 1 documents as high-dimensional embeddings. Each document is transformed into a 1536-dimensional vector that captures its semantic meaning, enabling similarity-based search beyond simple keyword matching.',
+      '',
+      'The database schema includes not just the embedding vectors but also metadata like source, date, and category, allowing for comprehensive retrieval and attribution of information. This foundation ensures the chatbot can access specific F1 knowledge that may not be present in general LLM training data.',
+      '',
+      '// Example document schema in Astra DB',
+      '{',
+      '  id: "doc-124578",',
+      '  text: "The 2025 Formula 1 season will feature 24 races, including the new Madrid Grand Prix...",',
+      '  source: "Formula1.com",',
+      '  date: "2024-06-10",',
+      '  category: "calendar",',
+      '  $vector: [0.023, -0.112, 0.438, ...] // 1536-dim vector',
+      '}',
+      '',
+      '2. Embedding Generation Pipeline',
+      'The system uses OpenAI\'s text-embedding-3-small model to convert both F1 documents and user queries into the same vector space. This common mathematical representation enables semantic matching where queries find relevant information even when using different terminology.',
+      '',
+      'During indexing, documents are processed in batches to optimize API usage, with each document carefully segmented to maintain context while fitting within the model\'s token limits. For live queries, the embedding process transforms user questions into the same vector format to enable similarity search.',
+      '',
+      '// Converting user queries to embeddings',
+      'async function generateEmbedding(text) {',
+      '  const response = await openai.embeddings.create({',
+      '    model: "text-embedding-3-small",',
+      '    input: text,',
+      '    dimensions: 1536',
+      '  });',
+      '  return response.data[0].embedding;',
+      '}',
+      '',
+      '3. Context Retrieval System',
+      'The retrieval system performs vector similarity search to find content relevant to user questions. Rather than simple retrieval, the system employs sophisticated ranking and filtering:',
+      '',
+      'Similarity Threshold Filtering - Only documents above 0.70 cosine similarity are considered',
+      'Source Authority Weighting - Official F1 sources receive priority in retrieval',
+      'Recency Prioritization - More recent documents are favored for time-sensitive topics',
+      'Contextual Diversity - The system seeks to include varied perspectives when appropriate',
+      'This carefully tuned retrieval process ensures that the LLM receives the most relevant, accurate, and up-to-date Formula 1 information as context for generating responses.',
+      '',
+      '4. Language Model Integration',
+      'The system integrates with GPT-4 through a carefully structured prompt architecture that consists of:',
+      '',
+      'A system prompt establishing the AI as an F1 expert with specific guidelines',
+      'Retrieved context from the vector database formatted with source attribution',
+      'Conversation history to maintain dialogue coherence',
+      'The current user question',
+      'Response streaming is implemented for enhanced user experience, delivering content as it\'s generated rather than waiting for complete responses. Parameters like temperature (0.7) are tuned to balance creativity with factual accuracy in F1 discussions.',
+      '',
+      '// Structured prompt for GPT-4',
+      'const promptMessages = [',
+      '  { role: "system", content: "You are F1GPT, an expert on Formula 1 racing..." },',
+      '  { role: "system", content: `CONTEXT INFORMATION:\n${retrievedContext}` },',
+      '  ...conversationHistory,',
+      '  { role: "user", content: userQuestion }',
+      '];',
+      '',
+      '5. Data Flow Architecture',
+      'The complete RAG pipeline follows these steps during each interaction:',
+      '',
+      'Query Processing - User\'s F1 question is received by the Next.js API route',
+      'Embedding Generation - The question is transformed into a vector embedding',
+      'Similarity Search - The vector database is queried for relevant F1 content',
+      'Context Assembly - Retrieved documents are formatted with source information',
+      'Prompt Construction - A structured prompt combines the context, conversation history, and user question',
+      'Response Generation - GPT-4 generates a response grounded in the provided context',
+      'Streaming Delivery - The response is streamed token-by-token to the user interface',
+      'This architecture ensures that responses are informed by the latest F1 information while maintaining the natural conversational abilities of advanced language models.',
+      '',
+      '6. Frontend Implementation',
+      'The React-based frontend creates an intuitive chat experience using the Vercel AI SDK. Key features include:',
+      '',
+      'Real-time Response Streaming - Text appears progressively for immediate feedback',
+      'Context-aware Suggestions - Follow-up questions are generated based on conversation context',
+      'Mobile-responsive Design - Layout adapts to different screen sizes with optimized interactions',
+      'F1 Theming - Visual design elements reflect Formula 1 branding and aesthetics',
+      'The user interface manages state using React hooks and provides smooth transitions between conversation states, with automatic scrolling to follow new messages.',
+      '',
+      '7. Knowledge Management',
+      'A sophisticated document processing pipeline maintains the F1 knowledge base:',
+      '',
+      'Content Curation - F1 articles, regulations, statistics, and historical data are sourced from authoritative sites',
+      'Document Processing - Content is cleaned, segmented, and prepared for embedding',
+      'Batched Indexing - Documents are embedded and stored in batches of 20 for efficiency',
+      'Regular Updates - The knowledge base is refreshed with new F1 content after races and announcements',
+      'This systematic approach to knowledge management ensures that the chatbot has access to comprehensive and current Formula 1 information.',
+      '',
+      '8. Technical Optimizations',
+      'The implementation includes several performance optimizations:',
+      '',
+      'Vector Search Efficiency - Approximate nearest neighbor algorithms accelerate similarity search',
+      'Response Caching - Common F1 questions are cached to reduce embedding and retrieval costs',
+      'Incremental Loading - UI components load progressively to improve perceived performance',
+      'Error Handling - Robust fallback mechanisms ensure service continuity during API disruptions',
+      'Resource Conservation - Careful management of API calls to balance cost and performance',
+      'These optimizations create a responsive, reliable chatbot experience even under high load conditions.',
+      '',
+      '9. Deployment Infrastructure',
+      'The F1 RAG Chatbot is deployed on Railway with containerization for consistent environments:',
+      '',
+      'Docker Containerization - Ensures consistent runtime across environments',
+      'Environment Variable Management - Secures API keys and configuration',
+      'Auto-scaling - Adapts to traffic patterns for cost efficiency',
+      'Monitoring - Tracks usage patterns and performance metrics',
+      'This infrastructure provides a stable foundation for delivering the F1 chatbot to global users with minimal latency and high reliability.',
+      '',
+      '10. Conclusion and Future Enhancements',
+      'The F1 RAG architecture delivers a significant improvement in accuracy and relevance for Formula 1 information compared to general-purpose chatbots. Future enhancements could include:',
+      '',
+      'Multi-modal Support - Visual recognition of F1 car components and track layouts',
+      'Live Data Integration - Real-time race information during Grand Prix weekends',
+      'Personalization - User preference tracking for favorite teams and drivers',
+      'Advanced Analytics - F1 performance predictions and statistical analysis',
+      'By combining vector search with generative AI, this architecture creates a specialized knowledge system that delivers the kind of detailed, accurate F1 information that passionate fans demand.',
+      '',
+      'Want to give it a try? You can access the F1 RAG Chatbot app at the link below.'
+    ].join('\n'),
+    image: '/v1/simple-rag.webp',
     images: [
       'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800',
     ],
-    technologies: ['TypeScript', 'VS Code API', 'OpenAI API', 'Node.js'],
+    technologies: ['Next.js', 'TypeScript', 'OpenAI', 'Astra DB', 'Langchain.js', 'Vercel AI SDK', 'Railway'],
     category: 'tool',
-    github: 'https://github.com/alexjohnson/ai-code-assistant',
-    demo: 'https://marketplace.visualstudio.com/items?itemName=alexjohnson.ai-code-assistant',
+    github: 'https://github.com/qvelard/f1-rag-chatbot',
+    demo: '#',
     date: '2024',
-    role: 'Extension Developer',
-    featured: false,
-  },
-  {
-    id: '4',
-    title: 'Image Classification Model',
-    slug: 'image-classification-model',
-    description: 'Deep learning model for automated product categorization in e-commerce.',
-    longDescription: `
-      Developed a deep learning model for automated product categorization in e-commerce platforms. 
-      The model can classify product images into 100+ categories with 95% accuracy.
-      
-      The project involved collecting and preprocessing a large dataset of product images, implementing 
-      a convolutional neural network architecture, and optimizing the model for production deployment. 
-      The solution includes a REST API for real-time image classification.
-      
-      Key achievements include reducing manual categorization time by 80% and improving search relevance 
-      through more accurate product tagging.
-    `,
-    image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8386422/pexels-photo-8386422.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
-    technologies: ['Python', 'TensorFlow', 'Keras', 'Docker', 'AWS', 'FastAPI'],
-    category: 'ml',
-    github: 'https://github.com/alexjohnson/image-classification-model',
-    blog: 'https://blog.alexjohnson.dev/image-classification-deep-dive',
-    date: '2023',
-    role: 'ML Engineer',
-    featured: true,
-  },
-  {
-    id: '5',
-    title: 'Real-time Chat Platform',
-    slug: 'realtime-chat-platform',
-    description: 'Scalable chat platform with video calling and screen sharing capabilities.',
-    longDescription: `
-      Built a scalable real-time chat platform that supports text messaging, video calling, and screen sharing. 
-      The platform handles thousands of concurrent users with low latency communication.
-      
-      Technical challenges included implementing efficient message queuing, handling connection scaling, 
-      and ensuring message delivery guarantees. The platform features end-to-end encryption, file sharing, 
-      and integration with external services.
-      
-      The solution uses WebRTC for peer-to-peer communication, Socket.io for real-time messaging, 
-      and a microservices architecture for scalability.
-    `,
-    image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/7988079/pexels-photo-7988079.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/4050430/pexels-photo-4050430.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
-    technologies: ['React', 'Node.js', 'Socket.io', 'WebRTC', 'Redis', 'MongoDB'],
-    category: 'web-app',
-    github: 'https://github.com/alexjohnson/realtime-chat-platform',
-    demo: 'https://chat-platform-demo.vercel.app',
-    date: '2023',
-    role: 'Full-Stack Developer',
-    featured: false,
-  },
-  {
-    id: '6',
-    title: 'DevOps Automation Tool',
-    slug: 'devops-automation-tool',
-    description: 'CLI tool for automating deployment pipelines and infrastructure management.',
-    longDescription: `
-      Created a comprehensive CLI tool that automates deployment pipelines and infrastructure management. 
-      The tool supports multiple cloud providers and can provision resources, deploy applications, 
-      and monitor system health.
-      
-      Key features include infrastructure as code templates, automated testing integration, 
-      rollback capabilities, and detailed logging. The tool reduces deployment time from hours to minutes 
-      and significantly decreases human error in the deployment process.
-      
-      Built with Go for performance and cross-platform compatibility, with extensive configuration 
-      options and plugin support for extensibility.
-    `,
-    image: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800',
-    images: [
-      'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
-    technologies: ['Go', 'Docker', 'Kubernetes', 'AWS', 'Terraform', 'GitHub Actions'],
-    category: 'tool',
-    github: 'https://github.com/alexjohnson/devops-automation-tool',
-    date: '2024',
-    role: 'DevOps Engineer',
-    featured: false,
-  },
+    role: 'Lead Developer',
+    featured: false
+  }
 ];
 
 export const categories = [
