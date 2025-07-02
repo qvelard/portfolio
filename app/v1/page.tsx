@@ -106,7 +106,7 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="/v1/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="https://qvelard.github.io/portfolio/v1/resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume
                 </a>
@@ -123,7 +123,7 @@ export default function HomePage() {
             <div className="relative mx-auto w-64 h-64 sm:w-80 sm:h-80">
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full opacity-20 blur-3xl"></div>
               <img
-                src="/v1/pdp.jpg"
+                src="https://qvelard.github.io/portfolio/v1/pdp.jpg"
                 alt="Quentin Velard"
                 className="relative w-full h-full object-cover rounded-full border-4 border-background shadow-2xl"
               />
