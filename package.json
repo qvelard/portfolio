@@ -8,15 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
-    "build:github": "cross-env GITHUB_PAGES=true npm run build",
-    "deploy:full": "cmd /c scripts\\deploy.bat",
-    "deploy:copy": "cmd /c scripts\\deploy.bat --skip-build",
-    "deploy:build": "cmd /c scripts\\deploy.bat --skip-git",
-    "deploy:test": "cmd /c scripts\\deploy.bat --skip-git",
-    "deploy:full:unix": "bash scripts/deploy.sh",
-    "deploy:test:unix": "bash scripts/test-deploy.sh",
     "serve:local": "npx serve out -l 3001",
-    "test:export": "npm run build && npx serve out -l 3001"
+    "test:export": "npm run build && npx serve run -l 3001",
+    "deploy:full:unix": "bash scripts/deploy.sh",
+    "deploy:test:unix": "bash scripts/test-deploy.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

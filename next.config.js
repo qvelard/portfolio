@@ -5,9 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.GITHUB_PAGES ? '/portfolio/' : '',
+  basePath: process.env.GITHUB_PAGES ? '/portfolio' : '',
   assetPrefix: process.env.GITHUB_PAGES ? '/portfolio/' : '',
-  distDir: 'docs', 
 };
 
 module.exports = nextConfig;
