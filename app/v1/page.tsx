@@ -125,8 +125,6 @@ export default function HomePage() {
               <img
                 src="/v1/pdp.jpg"
                 alt="Quentin Velard"
-                width={320}
-                height={320}
                 className="relative w-full h-full object-cover rounded-full border-4 border-background shadow-2xl"
               />
             </div>

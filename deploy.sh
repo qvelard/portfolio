@@ -13,12 +13,10 @@ set -e
 commit_msg="deploy: $(date '+%Y-%m-%d %H:%M:%S')"
 
 # Vérifie s'il y a quelque chose à committer
-if git diff --cached --quiet; then
-  echo -e "${RED}Aucun changement à committer dans out/.${NC}"
-else
-  git commit -m "$commit_msg"
-  echo -e "${GREEN}✔ Commit effectué : $commit_msg${NC}"
-fi
+
+git commit -m "$commit_msg"
+echo -e "${GREEN}✔ Commit effectué : $commit_msg${NC}"
+
 
 # Push
 if git push; then
