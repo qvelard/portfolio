@@ -32,7 +32,7 @@ export const projects: Project[] = [
       The solution leverages React with TypeScript for type safety, Socket.io for real-time updates, and a microservices architecture 
       to ensure scalability and maintainability.
     `,
-    image: '/v1/biomol.webp',
+    image: '/public/v1/biomol.webp',
     images: [
       'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -95,7 +95,7 @@ export const projects: Project[] = [
       '',
       'For more detailed insights, you can download the full project report below:'
     ].join('\n'),
-    image: '/v1/quiller.webp',
+    image: '/public/v1/quiller.webp',
     images: [
       'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -231,7 +231,7 @@ export const projects: Project[] = [
       '',
       'Want to give it a try? You can access the F1 RAG Chatbot app at the link below.'
     ].join('\n'),
-    image: '/v1/simple-rag.webp',
+    image: '/public/v1/simple-rag.webp',
     images: [
       'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800',

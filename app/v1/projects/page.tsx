@@ -95,7 +95,7 @@ export default function ProjectsPage() {
 
                   <div className="flex items-center justify-between pt-2">
                     <Button asChild variant="outline" size="sm">
-                      <Link href={`/v1/projects/${project.slug}`}>
+                      <Link href={`/public/v1/projects/${project.slug}`}>
                         View Details
                       </Link>
                     </Button>

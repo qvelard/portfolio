@@ -55,15 +55,15 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         {/* Breadcrumb */}
         <Breadcrumb
           items={[
-            { label: 'Home', href: '/v1' },
-            { label: 'Projects', href: '/v1/projects' },
-            { label: project.title, href: `/v1/projects/${project.slug}` },
+            { label: 'Home', href: '/public/v1' },
+            { label: 'Projects', href: '/public/v1/projects' },
+            { label: project.title, href: `/public/v1/projects/${project.slug}` },
           ]}
         />
 
         {/* Back button */}
         <Button asChild variant="ghost" className="mb-6">
-          <Link href="/v1/projects">
+          <Link href="/public/v1/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Projects
           </Link>
@@ -161,7 +161,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         
         <div className="text-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="/v1/projects">
+            <Link href="/public/v1/projects">
               View All Projects
             </Link>
           </Button>
