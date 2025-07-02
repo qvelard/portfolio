@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react';
 const navigation = [
   { name: 'Home', href: '/v1' },
   { name: 'Projects', href: '/v1/projects' },
-  { name: 'Resume', href: 'https://qvelard.github.io/portfolio/public/v1/resume.pdf', external: true },
+  { name: 'Resume', href: 'https://qvelard.github.io/portfolio/v1/resume.pdf', external: true },
 ];
 
 export function SiteHeader() {

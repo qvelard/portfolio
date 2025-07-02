@@ -106,7 +106,7 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="https://qvelard.github.io/portfolio/public/v1/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="https://qvelard.github.io/portfolio/v1/resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume
                 </a>
@@ -133,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="container pl-8 lg:pl-16">
+      <section className="container lg:pl-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
