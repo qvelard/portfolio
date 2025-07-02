@@ -21,7 +21,7 @@ export const projects: Project[] = [
     id: '1',
     title: 'Biomolecule Generation with Anti-oxydant and Anti-inflammatory properties',
     slug: 'biomolecule-generation',
-    description: 'his Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabanes at École des Mines de Nancy, leverages deep learning to generate biomolecules with anti-inflammatory (AI) and antioxidant (AO) properties. This work supports the "Biomolecules 4 Bioeconomy" framework, with potential applications in pharmaceuticals, agrochemicals, and cosmetics.',
+    description: 'This Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabanes at École des Mines de Nancy, leverages deep learning to generate biomolecules with anti-inflammatory (AI) and antioxidant (AO) properties. This work supports the "Biomolecules 4 Bioeconomy" framework, with potential applications in pharmaceuticals, agrochemicals, and cosmetics.',
     longDescription: `
       Built a full-featured e-commerce dashboard that provides store owners with comprehensive insights into their business. 
       The application features real-time sales analytics, inventory management, customer insights, and order processing capabilities.
@@ -38,12 +38,12 @@ export const projects: Project[] = [
       'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/669996/pexels-photo-669996.jpeg?auto=compress&cs=tinysrgb&w=800',
     ],
-    technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Socket.io', 'Tailwind CSS'],
+    technologies: ['Python', 'HuggingFace', 'ChemBERTa', 'ChemGPT'],
     category: 'web-app',
     github: 'https://github.com/alexjohnson/ecommerce-dashboard',
     demo: 'https://ecommerce-dashboard-demo.vercel.app',
     date: '2024',
-    role: 'Full-Stack Developer',
+    role: 'Academic Project',
     featured: true,
   },
   {
@@ -101,12 +101,12 @@ export const projects: Project[] = [
       'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=800',
     ],
-    technologies: ['React Native', 'TypeScript', 'Firebase', 'Redux', 'Expo'],
+    technologies: ['Python', 'QisKit', 'PendlePendle', 'AWS Qunatum Computing'],
     category: 'mobile',
     github: 'https://github.com/qvelard/task-management-app',
     demo: 'https://apps.apple.com/app/taskflow',
-    date: '2023',
-    role: 'Mobile Developer',
+    date: '2024',
+    role: 'Intern',
     featured: true,
   },
   {
@@ -231,19 +231,19 @@ export const projects: Project[] = [
       '',
       'Want to give it a try? You can access the F1 RAG Chatbot app at the link below.'
     ].join('\n'),
-    image: '/public/v1/simple-rag.webp',
+    image: 'https://qvelard.github.io/portfolio/v1/simple-rag.webp',
     images: [
       'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800',
     ],
-    technologies: ['Next.js', 'TypeScript', 'OpenAI', 'Astra DB', 'Langchain.js', 'Vercel AI SDK', 'Railway'],
+    technologies: ['Node.js', 'TypeScript', 'OpenAI', 'Astra DB', 'Langchain.js', 'Vercel AI SDK', 'Railway'],
     category: 'tool',
     github: 'https://github.com/qvelard/f1-rag-chatbot',
     demo: '#',
-    date: '2024',
-    role: 'Lead Developer',
-    featured: false
+    date: '2025',
+    role: 'Developer',
+    featured: true
   }
 ];
 
