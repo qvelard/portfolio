@@ -1,17 +1,33 @@
 #!/bin/bash
 
-# Arrêt en cas d'erreur
-env | grep GIT
-set -e
+# Couleurs
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
 
-# Ajoute tous les changements dans le dossier out/
-git add out/
+# Arrêt en cas d'erreur
+set -e
 
 # Crée un message de commit avec la date et l'heure actuelles
 commit_msg="deploy: $(date '+%Y-%m-%d %H:%M:%S')"
 
-git commit -m "$commit_msg"
+# Vérifie s'il y a quelque chose à committer
+if git diff --cached --quiet; then
+  echo -e "${RED}Aucun changement à committer dans out/.${NC}"
+else
+  git commit -m "$commit_msg"
+  echo -e "${GREEN}✔ Commit effectué : $commit_msg${NC}"
+fi
 
-git push
+# Push
+if git push; then
+  echo -e "${GREEN}✔ Push réussi sur la branche courante !${NC}"
+else
+  echo -e "${RED}❌ Erreur lors du push. Essayez git pull puis relancez le script.${NC}"
+  exit 1
+fi
 
-echo "✅ Déploiement git terminé à $commit_msg" 
+# Résumé
+branch=$(git rev-parse --abbrev-ref HEAD)
+echo -e "\n${GREEN}Déploiement terminé sur la branche ${branch}.${NC}" 

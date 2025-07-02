@@ -32,7 +32,7 @@ export const projects: Project[] = [
       The solution leverages React with TypeScript for type safety, Socket.io for real-time updates, and a microservices architecture 
       to ensure scalability and maintainability.
     `,
-    image: '/public/v1/biomol.webp',
+    image: '/v1/biomol.webp',
     images: [
       'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -95,7 +95,7 @@ export const projects: Project[] = [
       '',
       'For more detailed insights, you can download the full project report below:'
     ].join('\n'),
-    image: '/public/v1/quiller.webp',
+    image: '/v1/quiller.webp',
     images: [
       'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
       'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',

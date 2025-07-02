@@ -105,7 +105,7 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-3">
                     <Button asChild>
-                      <Link href={`/public/v1/projects/${projects[currentIndex].slug}`}>
+                      <Link href={`/v1/projects/${projects[currentIndex].slug}`}>
                         View Details
                       </Link>
                     </Button>

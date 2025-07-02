@@ -10,9 +10,9 @@ import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 
 const navigation = [
-  { name: 'Home', href: '/public/v1' },
-  { name: 'Projects', href: '/public/v1/projects' },
-  { name: 'Resume', href: '/public/v1/resume.pdf', external: true },
+  { name: 'Home', href: '/v1' },
+  { name: 'Projects', href: '/v1/projects' },
+  { name: 'Resume', href: '/v1/resume.pdf', external: true },
 ];
 
 export function SiteHeader() {
@@ -28,7 +28,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between pl-8 lg:pl-16">
-        <Link href="/public/v1" className="flex items-center space-x-2">
+        <Link href="/v1" className="flex items-center space-x-2">
           <motion.div
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.3 }}

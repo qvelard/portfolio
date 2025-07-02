@@ -63,7 +63,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Back button */}
         <Button asChild variant="ghost" className="mb-6">
-          <Link href="/public/v1/projects">
+          <Link href="/v1/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Projects
           </Link>
@@ -161,7 +161,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         
         <div className="text-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="/public/v1/projects">
+            <Link href="/v1/projects">
               View All Projects
             </Link>
           </Button>

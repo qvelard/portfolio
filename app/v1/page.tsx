@@ -100,13 +100,13 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               <Button asChild size="lg" className="group">
-                <Link href="/public/v1/projects">
+                <Link href="/v1/projects">
                   View Projects
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="/public/v1/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/v1/resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume
                 </a>
@@ -123,7 +123,7 @@ export default function HomePage() {
             <div className="relative mx-auto w-64 h-64 sm:w-80 sm:h-80">
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full opacity-20 blur-3xl"></div>
               <img
-                src="/public/v1/pdp.jpg"
+                src="/v1/pdp.jpg"
                 alt="Quentin Velard"
                 width={320}
                 height={320}
@@ -226,7 +226,7 @@ export default function HomePage() {
 
           <div className="text-center">
             <Button asChild variant="outline" size="lg">
-              <Link href="/public/v1/projects">
+              <Link href="/v1/projects">
                 View All Projects
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
