@@ -9,6 +9,7 @@ NC='\033[0m' # No Color
 # Arrêt en cas d'erreur
 set -e
 
+git add .
 # Crée un message de commit avec la date et l'heure actuelles
 commit_msg="deploy: $(date '+%Y-%m-%d %H:%M:%S')"
 

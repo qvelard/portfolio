@@ -116,7 +116,7 @@ export function ContactForm() {
           </>
         )}
       </Button>
-      {state === "success" && <p>Thank you for your message! I'll get back to you soon.</p>}
+      {state === "success" && <p>Thank you for your message! I&aposll get back to you soon.</p>}
       {state === "error" && <p>Error sending message.</p>}
     </motion.form>
   );
