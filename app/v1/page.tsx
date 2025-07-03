@@ -18,7 +18,7 @@ const skillCategories = [
   },
   {
     category: 'Backend',
-    technologies: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Redis'],
+    technologies: ['Node.js', 'PostgreSQL', 'MongoDB', 'Redis'],
     color: 'bg-green-500/10 text-green-700 dark:text-green-300'
   },
   {
@@ -28,7 +28,7 @@ const skillCategories = [
   },
   {
     category: 'Tools & Languages',
-    technologies: ['Python', 'Go', 'Git', 'VS Code', 'Figma'],
+    technologies: ['Python', 'FastAPI', 'PyTorch', 'Tensorflow', 'Jax','Langchain', 'Vercel', 'R', 'Git', 'VS Code', 'Figma'],
     color: 'bg-purple-500/10 text-purple-700 dark:text-purple-300'
   }
 ];
@@ -36,18 +36,18 @@ const skillCategories = [
 const features = [
   {
     icon: Code,
-    title: 'Full-Stack Development',
-    description: 'End-to-end web applications with modern technologies and best practices.',
+    title: 'Data Science & Machine Learning',
+    description: 'Building predictive models, data analysis, NLP, computer vision, and automating AI pipelines for real-world applications.',
   },
   {
     icon: Palette,
-    title: 'UI/UX Design',
-    description: 'Beautiful, intuitive interfaces that provide exceptional user experiences.',
+    title: 'Full-Stack Development',
+    description: 'Designing and developing robust web and mobile applications, from backend APIs to user interfaces, with a focus on performance and user experience.',
   },
   {
     icon: Zap,
-    title: 'Performance Optimization',
-    description: 'Fast, scalable applications optimized for performance and accessibility.',
+    title: 'Project Management & Communication',
+    description: 'Leading technical projects, writing clear documentation, scientific communication, and collaborating effectively with multidisciplinary teams.',
   },
 ];
 
@@ -133,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="container lg:pl-16">
+      <section className="container lg:pl-4 lg:pr-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
