@@ -57,7 +57,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col gap-20 py-10">
       {/* Hero Section */}
-      <section className="container pl-8 lg:pl-16">
+      <section className="container lg:pl-4 lg:pr-4">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -80,7 +80,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Data Scientist
+                Machine Learning Engineer | Computer Vision & NLP
               </motion.p>
             </div>
             
@@ -90,7 +90,11 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              I am a data scientist with a passion for building scalable, user-centric applications.
+              I am a Machine Learning Engineer with a strong academic background in Applied Mathematics and Data Science, specializing in computer vision and quantum machine learning. My experience spans R&D roles at STMicroelectronics, RMIT University, and Bpifrance, where I developed deep learning models for industrial applications, including radiation prediction for semiconductors and quantum continual learning algorithms.
+
+              Passionate about robotics and AI for industry, I enjoy building intelligent systems that bridge the gap between research and real-world impact. I have hands-on experience with distributed training, MLOps, and deploying scalable solutions using Python, PyTorch, TensorFlow, and modern web technologies. As a hobbyist, I participate in robotics hackathons and freelance projects involving automation, web development, and data scraping.
+
+              I am also actively engaged in the scientific and tech community, attending conferences on AI, blockchain, and decentralized finance, and supporting initiatives in hydrogen and nuclear energy. Driven by curiosity and a commitment to innovation, I strive to deliver robust, impactful solutions at the intersection of AI, industry, and automation.
             </motion.p>
             
             <motion.div 
@@ -205,7 +209,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects Carousel */}
-      <section className="container pl-8 lg:pl-16">
+      <section className="container lg:pl-4 lg:pr-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -262,7 +266,7 @@ export default function HomePage() {
             <Button asChild variant="outline" size="lg">
               <a href="mailto:quentin@velard.fr">
                 <Mail className="mr-2 h-4 w-4" />
-                quentin@velard.fr
+                Paris, France | quentin@velard.fr
               </a>
             </Button>
           </div>

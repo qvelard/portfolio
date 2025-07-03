@@ -7,7 +7,7 @@ export interface Project {
   image: string;
   images: string[];
   technologies: string[];
-  category: 'web-app' | 'mobile' | 'tool' | 'ml';
+  category: 'web-app' | 'mobile' | 'tool' | 'machine-learning';
   github?: string;
   demo?: string;
   blog?: string;
@@ -39,7 +39,7 @@ export const projects: Project[] = [
       'https://images.pexels.com/photos/669996/pexels-photo-669996.jpeg?auto=compress&cs=tinysrgb&w=800',
     ],
     technologies: ['Python', 'HuggingFace', 'ChemBERTa', 'ChemGPT'],
-    category: 'web-app',
+    category: 'machine-learning',
     github: 'https://github.com/alexjohnson/ecommerce-dashboard',
     demo: 'https://ecommerce-dashboard-demo.vercel.app',
     date: '2024',
@@ -102,9 +102,9 @@ export const projects: Project[] = [
       'https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=800',
     ],
     technologies: ['Python', 'QisKit', 'PendlePendle', 'AWS Qunatum Computing'],
-    category: 'mobile',
+    category: 'machine-learning',
     github: 'https://github.com/qvelard/task-management-app',
-    demo: 'https://apps.apple.com/app/taskflow',
+    demo: 'https://velard.fr/v1/qiller.pdf',
     date: '2024',
     role: 'Intern',
     featured: true,
@@ -239,8 +239,8 @@ export const projects: Project[] = [
     ],
     technologies: ['Node.js', 'TypeScript', 'OpenAI', 'Astra DB', 'Langchain.js', 'Vercel AI SDK', 'Railway'],
     category: 'tool',
-    github: 'https://github.com/qvelard/f1-rag-chatbot',
-    demo: '#',
+    github: 'https://github.com/qvelard/RAG_chatbot',
+    demo: 'https://ragchatbot-app.velard.fr/',
     date: '2025',
     role: 'Developer',
     featured: true
