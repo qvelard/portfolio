@@ -85,16 +85,12 @@ export default function HomePage() {
             </div>
             
             <motion.p 
-              className="text-lg text-muted-foreground max-w-2xl"
+              className="text-lg text-muted-foreground max-w-2xl mx-auto px-2 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              I am a Machine Learning Engineer with a strong academic background in Applied Mathematics and Data Science, specializing in computer vision and quantum machine learning. My experience spans R&D roles at STMicroelectronics, RMIT University, and Bpifrance, where I developed deep learning models for industrial applications, including radiation prediction for semiconductors and quantum continual learning algorithms.
-
-              Passionate about robotics and AI for industry, I enjoy building intelligent systems that bridge the gap between research and real-world impact. I have hands-on experience with distributed training, MLOps, and deploying scalable solutions using Python, PyTorch, TensorFlow, and modern web technologies. As a hobbyist, I participate in robotics hackathons and freelance projects involving automation, web development, and data scraping.
-
-              I am also actively engaged in the scientific and tech community, attending conferences on AI, blockchain, and decentralized finance, and supporting initiatives in hydrogen and nuclear energy. Driven by curiosity and a commitment to innovation, I strive to deliver robust, impactful solutions at the intersection of AI, industry, and automation.
+              I am a Machine Learning Engineer with a strong academic background in Applied Mathematics and Data Science, specializing in computer vision and machine learning. 
             </motion.p>
             
             <motion.div 
@@ -148,7 +144,11 @@ export default function HomePage() {
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About Me</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              I am a data scientist with a passion for building scalable, user-centric applications.
+            My experience spans R&D roles at STMicroelectronics, RMIT University, and Bpifrance, where I developed deep learning models for industrial applications, including radiation prediction for semiconductors and quantum continual learning algorithms.
+
+            Passionate about robotics and AI for industry, I enjoy building intelligent systems that bridge the gap between research and real-world impact. I have hands-on experience with distributed training, MLOps, and deploying scalable solutions using Python, PyTorch, TensorFlow, and modern web technologies. As a hobbyist, I participate in robotics hackathons and freelance projects involving automation, web development, and data scraping.
+
+            I am also actively engaged in the scientific and tech community, attending conferences on AI, blockchain, and decentralized finance, and supporting initiatives in hydrogen and nuclear energy. Driven by curiosity and a commitment to innovation, I strive to deliver robust, impactful solutions at the intersection of AI, industry, and automation.
             </p>
           </div>
 
