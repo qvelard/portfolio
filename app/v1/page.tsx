@@ -67,7 +67,7 @@ export default function HomePage() {
           >
             <div className="space-y-2">
               <motion.h1 
-                className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
+                className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl mx-auto px-2 sm:px-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -75,7 +75,7 @@ export default function HomePage() {
                 Quentin Velard
               </motion.h1>
               <motion.p 
-                className="text-xl text-muted-foreground sm:text-2xl"
+                className="text-xl text-muted-foreground sm:text-2xl mx-auto px-2 sm:px-0 "
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -133,7 +133,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="container lg:pl-4 lg:pr-4">
+      <section className="container mx-auto px-3 sm:px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -143,12 +143,14 @@ export default function HomePage() {
         >
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About Me</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            My experience spans R&D roles at STMicroelectronics, RMIT University, and Bpifrance, where I developed deep learning models for industrial applications, including radiation prediction for semiconductors and quantum continual learning algorithms.
-
-            Passionate about robotics and AI for industry, I enjoy building intelligent systems that bridge the gap between research and real-world impact. I have hands-on experience with distributed training, MLOps, and deploying scalable solutions using Python, PyTorch, TensorFlow, and modern web technologies. As a hobbyist, I participate in robotics hackathons and freelance projects involving automation, web development, and data scraping.
-
-            I am also actively engaged in the scientific and tech community, attending conferences on AI, blockchain, and decentralized finance, and supporting initiatives in hydrogen and nuclear energy. Driven by curiosity and a commitment to innovation, I strive to deliver robust, impactful solutions at the intersection of AI, industry, and automation.
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-3 sm:px-0">
+              My experience spans R&D roles at STMicroelectronics, RMIT University, and Bpifrance, where I developed deep learning models for industrial applications, including radiation prediction for semiconductors and quantum continual learning algorithms.
+            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-3 sm:px-0 mt-4">
+              Passionate about robotics and AI for industry, I enjoy building intelligent systems that bridge the gap between research and real-world impact. I have hands-on experience with distributed training, MLOps, and deploying scalable solutions using Python, PyTorch, TensorFlow, and modern web technologies. As a hobbyist, I participate in robotics hackathons and freelance projects involving automation, web development, and data scraping.
+            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-3 sm:px-0 mt-4">
+              I am also actively engaged in the scientific and tech community, attending conferences on AI, blockchain, and decentralized finance, and supporting initiatives in hydrogen and nuclear energy. Driven by curiosity and a commitment to innovation, I strive to deliver robust, impactful solutions at the intersection of AI, industry, and automation.
             </p>
           </div>
 
@@ -209,7 +211,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects Carousel */}
-      <section className="container lg:pl-4 lg:pr-4">
+      <section className="container mx-auto px-3 sm:px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +240,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section className="container pl-8 lg:pl-16">
+      <section className="container mx-auto px-3 sm:px-8 lg:px-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
