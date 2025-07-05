@@ -70,7 +70,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </Button>
 
         {/* Project Header */}
-        <div className="space-y-6">
+        <div className="container mx-auto px-3 sm:px-8 lg:px-16">
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
               {project.title}
@@ -144,7 +144,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Project Details */}
         <Card>
-          <CardContent className="p-8">
+          <CardContent className="container mx-auto px-3 sm:px-8 lg:px-16">
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <h2 className="text-2xl font-bold mb-4">Project Overview</h2>
               {project.longDescription.split('\n\n').map((paragraph, index) => (
