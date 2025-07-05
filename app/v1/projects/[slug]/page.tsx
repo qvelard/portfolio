@@ -7,7 +7,6 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { getProjectBySlug, projects } from '@/lib/projects';
-import { ProjectGallery } from '@/components/project-gallery';
 import { Breadcrumb } from '@/components/breadcrumb';
 
 interface ProjectPageProps {
@@ -139,19 +138,54 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </div>
 
-        {/* Project Gallery */}
-        <ProjectGallery images={project.images} title={project.title} />
+
 
         {/* Project Details */}
         <Card>
           <CardContent className="container mx-auto px-3 sm:px-8 lg:px-16">
             <div className="prose prose-gray dark:prose-invert max-w-none">
-              <h2 className="text-2xl font-bold mb-4">Project Overview</h2>
-              {project.longDescription.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-4 text-muted-foreground leading-relaxed">
-                  {paragraph.trim()}
-                </p>
-              ))}
+              <h2 className="text-2xl font-bold mb-6 text-foreground">Project Overview</h2>
+              {project.longDescription.split('\n\n').map((paragraph, index) => {
+                const trimmedParagraph = paragraph.trim();
+                
+                // Check if paragraph is a heading (starts with # or contains specific patterns)
+                if (trimmedParagraph.startsWith('##') || trimmedParagraph.startsWith('🗝️') || trimmedParagraph.startsWith('🔧') || trimmedParagraph.startsWith('📈') || trimmedParagraph.startsWith('🌟') || trimmedParagraph.startsWith('🚧')) {
+                  return (
+                    <h3 key={index} className="text-lg font-semibold mb-3 mt-6 text-foreground">
+                      {trimmedParagraph.replace(/^[#🗝️🔧📈🌟🚧]+ /, '')}
+                    </h3>
+                  );
+                }
+                
+                // Check if paragraph is a subheading (starts with ### or specific patterns)
+                if (trimmedParagraph.startsWith('###') || trimmedParagraph.startsWith('📋') || trimmedParagraph.startsWith('⚡') || trimmedParagraph.startsWith('🎯')) {
+                  return (
+                    <h4 key={index} className="text-base font-medium mb-2 mt-4 text-foreground">
+                      {trimmedParagraph.replace(/^[#📋⚡🎯]+ /, '')}
+                    </h4>
+                  );
+                }
+                
+                // Check if paragraph is a code block or technical content
+                if (trimmedParagraph.includes('//') || trimmedParagraph.includes('{') || trimmedParagraph.includes('}')) {
+                  return (
+                    <pre key={index} className="bg-muted p-3 rounded-md text-sm font-mono mb-4 overflow-x-auto">
+                      <code>{trimmedParagraph}</code>
+                    </pre>
+                  );
+                }
+                
+                // Regular paragraph
+                if (trimmedParagraph.length > 0) {
+                  return (
+                    <p key={index} className="mb-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
+                      {trimmedParagraph}
+                    </p>
+                  );
+                }
+                
+                return null;
+              })}
             </div>
           </CardContent>
         </Card>

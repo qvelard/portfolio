@@ -33,11 +33,7 @@ export const projects: Project[] = [
       to ensure scalability and maintainability.
     `,
     image: 'https://qvelard.github.io/portfolio/v1/biomol.webp',
-    images: [
-      'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/669996/pexels-photo-669996.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
+    images: [],
     technologies: ['Python', 'HuggingFace', 'ChemBERTa', 'ChemGPT'],
     category: 'machine-learning',
     github: 'https://github.com/qvelard/BiomolGeneration',
@@ -96,11 +92,7 @@ export const projects: Project[] = [
       'For more detailed insights, you can download the full project report below:'
     ].join('\n'),
     image: 'https://qvelard.github.io/portfolio/v1/quiller.webp',
-    images: [
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
+    images: [],
     technologies: ['Python', 'QisKit', 'PendlePendle', 'AWS Qunatum Computing'],
     category: 'machine-learning',
     demo: 'https://velard.fr/v1/qiller.pdf',
@@ -231,11 +223,7 @@ export const projects: Project[] = [
       'Want to give it a try? You can access the F1 RAG Chatbot app at the link below.'
     ].join('\n'),
     image: 'https://qvelard.github.io/portfolio/v1/simple-rag.webp',
-    images: [
-      'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800',
-      'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800',
-    ],
+    images: [],
     technologies: ['Node.js', 'TypeScript', 'OpenAI', 'Astra DB', 'Langchain.js', 'Vercel AI SDK', 'Railway'],
     category: 'tool',
     github: 'https://github.com/qvelard/RAG_chatbot',
