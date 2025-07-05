@@ -1,68 +1,70 @@
 # Portfolio - Quentin Velard
 
-Ce projet est un portfolio personnel réalisé avec Next.js, Tailwind CSS et déployé sur GitHub Pages.
+A personal portfolio website built with Next.js, Tailwind CSS, and deployed on GitHub Pages. Showcasing my work as a Machine Learning Engineer specializing in computer vision and machine learning.
 
-## 🚀 Aperçu
-- **Stack** : Next.js 13+, React, TypeScript, Tailwind CSS
-- **Déploiement statique** : GitHub Pages (branche `main`, dossier `/docs`)
-- **Formulaire de contact** : Intégré avec [Formspree](https://formspree.io/)
-- **Thème** : Dark mode par défaut avec toggle
+## 🚀 Overview
+- **Stack**: Next.js 13+, React, TypeScript, Tailwind CSS, Framer Motion
+- **Static Deployment**: GitHub Pages (main branch, `/docs` folder)
+- **Contact Form**: Integrated with [Formspree](https://formspree.io/)
+- **Theme**: Dark mode by default with toggle capability
+- **UI Components**: shadcn/ui library for consistent design
 
 ---
 
 ## 📦 Installation
 
-1. Clone le repo :
+1. Clone the repository:
    ```bash
    git clone https://github.com/qvelard/portfolio.git
    cd portfolio
    ```
-2. Installe les dépendances :
+
+2. Install dependencies:
    ```bash
    npm install
    ```
 
 ---
 
-## 🛠️ Développement local
+## 🛠️ Local Development
 
 ```bash
 npm run dev
 ```
-Le site sera accessible sur [http://localhost:3000](http://localhost:3000).
+The site will be available at [http://localhost:3000](http://localhost:3000).
 
 ---
 
-## 🚀 Déploiement GitHub Pages
+## 🚀 GitHub Pages Deployment
 
-### Scripts de déploiement automatique
+### Automated Deployment Scripts
 
 ```bash
-# Déploiement complet (build + export + git)
+# Full deployment (build + export + git)
 npm run deploy:full
 
-# Test de déploiement (sans git)
+# Test deployment (without git)
 npm run deploy:test
 
-# Copie seulement (sans build, utile si build déjà fait)
+# Copy only (without build, useful if build already done)
 npm run deploy:copy
 
-# Build + copie (sans git, pour tester)
+# Build + copy (without git, for testing)
 npm run deploy:build
 ```
 
-> 📁 **Scripts organisés** : Tous les scripts de déploiement sont dans le dossier `scripts/`
+> 📁 **Organized Scripts**: All deployment scripts are in the `scripts/` folder
 
-### Déploiement manuel
+### Manual Deployment
 
-1. **Exporter le site statique**
+1. **Export static site**
    ```bash
    npm run build:github
    npm run export
    ```
-   Le site statique est généré dans le dossier `out/`.
+   The static site is generated in the `out/` folder.
 
-2. **Déplacer le dossier `out` dans `/docs`**
+2. **Move the `out` folder to `/docs`**
    ```bash
    rm -rf docs
    cp -r out docs
@@ -71,59 +73,93 @@ npm run deploy:build
 3. **Commit & push**
    ```bash
    git add docs
-   git commit -m "Déploiement statique dans /docs pour GitHub Pages"
+   git commit -m "Static deployment in /docs for GitHub Pages"
    git push
    ```
 
-### Configuration GitHub Pages
+### GitHub Pages Configuration
 - Settings > Pages
-- Source : `main` branch, `/docs` folder
+- Source: `main` branch, `/docs` folder
 
-Le site sera accessible à :
+The site will be available at:
 ```
 https://qvelard.github.io/portfolio/
 ```
 
 ---
 
-## 📬 Formulaire de contact (Formspree)
+## 📬 Contact Form (Formspree)
 
-Le formulaire de contact utilise [Formspree](https://formspree.io/f/mqapznyb) pour recevoir les messages sans backend.
+The contact form uses [Formspree](https://formspree.io/f/mqapznyb) to receive messages without a backend.
 
-- L'URL d'action du formulaire est déjà configurée.
-- Les messages sont envoyés directement à ton tableau de bord Formspree.
-
----
-
-## 📝 Personnalisation
-- Modifie le contenu dans le dossier `app/` et les composants dans `components/`.
-- Les projets sont gérés dans `lib/projects.ts`.
-- Les styles globaux sont dans `app/globals.css`.
+- The form action URL is already configured
+- Messages are sent directly to your Formspree dashboard
 
 ---
 
-## 🔧 Scripts disponibles
+## 📝 Customization
+- Modify content in the `app/` folder and components in `components/`
+- Projects are managed in `lib/projects.ts`
+- Global styles are in `app/globals.css`
+- UI components are in `components/ui/`
+
+---
+
+## 🔧 Available Scripts
 
 ```bash
-# Développement
-npm run dev          # Serveur de développement
-npm run build        # Build de production
-npm run start        # Serveur de production
+# Development
+npm run dev          # Development server
+npm run build        # Production build
+npm run start        # Production server
 npm run lint         # Linting
 
-# Export et déploiement
-npm run build:github # Build avec config GitHub Pages
-npm run export       # Export statique
-npm run deploy:full  # Déploiement complet
-npm run deploy:test  # Test sans git
-npm run serve:local  # Serveur local pour tester l'export
+# Export and deployment
+npm run build:github # Build with GitHub Pages config
+npm run export       # Static export
+npm run deploy:full  # Full deployment
+npm run deploy:test  # Test without git
+npm run serve:local  # Local server to test export
 
 # Tests
-npm run test:export  # Build + serveur local
+npm run test:export  # Build + local server
 ```
 
 ---
 
-## 📄 Licence
+## 🏗️ Project Structure
+
+```
+portfolio/
+├── app/                    # Next.js app router
+│   ├── v1/                # New portfolio version
+│   │   ├── page.tsx       # Homepage
+│   │   └── projects/      # Project pages
+├── components/             # React components
+│   ├── ui/               # shadcn/ui components
+│   ├── projects-carousel.tsx
+│   ├── project-gallery.tsx
+│   └── contact-form.tsx
+├── lib/                   # Utilities and data
+│   ├── projects.ts       # Project data
+│   └── utils.ts          # Utility functions
+├── public/v1/            # Static assets
+└── scripts/              # Deployment scripts
+```
+
+---
+
+## 🎨 Features
+
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Animations**: Smooth transitions with Framer Motion
+- **Project Showcase**: Featured projects carousel and detailed project pages
+- **Contact Integration**: Working contact form with Formspree
+- **SEO Optimized**: Meta tags and structured data
+- **Performance**: Optimized images and static generation
+
+---
+
+## 📄 License
 MIT
 

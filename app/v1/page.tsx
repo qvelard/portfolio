@@ -264,7 +264,7 @@ export default function HomePage() {
             </Card>
           </div>
 
-          <div className="text-center">
+          <div className="container mx-auto px-3 sm:px-8 lg:px-16">
             <Button asChild variant="outline" size="lg">
               <a href="mailto:quentin@velard.fr">
                 <Mail className="mr-2 h-4 w-4" />
