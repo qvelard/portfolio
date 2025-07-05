@@ -32,7 +32,7 @@ const socialLinks = [
 export function SiteFooter() {
   return (
     <footer className="border-t bg-background">
-      <div className="container py-8 pl-8 lg:pl-16">
+      <div className="container mx-auto px-3 sm:px-8 lg:px-16">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:items-start">
           <div className="flex flex-col items-center gap-2 md:items-start">
             <Link href="/v1" className="font-bold text-lg">

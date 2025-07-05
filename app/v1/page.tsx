@@ -267,7 +267,7 @@ export default function HomePage() {
           <div className="text-center">
             <Button asChild variant="outline" size="lg">
               <a href="mailto:quentin@velard.fr">
-                <Mail className="max-w-2xl mx-auto" />
+                <Mail className="mr-2 h-4 w-4" />
                 Paris, France | quentin@velard.fr
               </a>
             </Button>
