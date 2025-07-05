@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   keywords: ['machine learning', 'quantum machine learning', 'robotics', 'portfolio'],
   authors: [{ name: 'Quentin Velard' }],
   creator: 'Quentin Velard',
+  icons: {
+    icon: '/v1/favicon.ico',
+    shortcut: '/v1/favicon.ico',
+    apple: '/v1/favicon.ico',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
