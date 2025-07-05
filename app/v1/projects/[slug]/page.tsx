@@ -166,6 +166,33 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   );
                 }
                 
+                // Check if paragraph is a table (contains | characters)
+                if (trimmedParagraph.includes('|') && trimmedParagraph.split('|').length > 2) {
+                  const rows = trimmedParagraph.split('\n').filter(row => row.trim().length > 0);
+                  const tableRows = rows.map((row, rowIndex) => {
+                    const cells = row.split('|').map(cell => cell.trim()).filter(cell => cell.length > 0);
+                    return cells;
+                  });
+                  
+                  return (
+                    <div key={index} className="mb-6 overflow-x-auto">
+                      <table className="w-full border-collapse border border-muted-foreground/20">
+                        <tbody>
+                          {tableRows.map((row, rowIndex) => (
+                            <tr key={rowIndex} className={rowIndex === 0 ? 'bg-muted/50 font-semibold' : 'hover:bg-muted/30'}>
+                              {row.map((cell, cellIndex) => (
+                                <td key={cellIndex} className="border border-muted-foreground/20 px-3 py-2 text-sm">
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  );
+                }
+                
                 // Check if paragraph is a code block or technical content
                 if (trimmedParagraph.includes('//') || trimmedParagraph.includes('{') || trimmedParagraph.includes('}')) {
                   return (
