@@ -50,16 +50,16 @@ The team sourced 1,883 AI molecules from PubChem, noting properties like molecul
 
 ### Architectures
 
-1. **LLM Fine-Tuning**: ChemBERTa, pretrained on 77 million SMILES from PubChem, was fine-tuned to predict AI/AO properties.
-2. **GAN + LLM Hybrid**: GPT-2_zinc_87m (pretrained on 480 million SMILES from ZINC) generates molecules, while a discriminator ensures validity—a fresh take on molecular design!
+1. LLM Fine-Tuning: ChemBERTa, pretrained on 77 million SMILES from PubChem, was fine-tuned to predict AI/AO properties.
+2. GAN + LLM Hybrid: GPT-2_zinc_87m (pretrained on 480 million SMILES from ZINC) generates molecules, while a discriminator ensures validity—a fresh take on molecular design!
 
 ### Pipelines
 
-1. **Data Generation Pipeline**:
-   - **Data Augmentation Layer (DAL)**: Expands the dataset to 11,503 molecules via tautomers and permutations.
-   - **GAN + LLM**: Creates and filters new molecules.
-   - **Linear Discriminant Analysis (LDA)**: Keeps the most relevant features.
-2. **Data Prediction Pipeline**: Fine-tunes ChemBERTa to predict AI/AO properties, enhancing the dataset further.
+1. Data Generation Pipeline:
+   - Data Augmentation Layer (DAL): Expands the dataset to 11,503 molecules via tautomers and permutations.
+   - GAN + LLM: Creates and filters new molecules.
+   - Linear Discriminant Analysis (LDA): Keeps the most relevant features.
+2. Data Prediction Pipeline: Fine-tunes ChemBERTa to predict AI/AO properties, enhancing the dataset further.
 
 ## 📈 Experimental Results
 
@@ -68,26 +68,24 @@ Check out the key findings below in two handy tables!
 ### Data Augmentation Layer (DAL)
 
 | Metric | Initial Dataset | Tautomers Only | Permutations Only | Tautomers + Permutations |
-|--------|----------------|----------------|-------------------|-------------------------|
 | Number of Molecules | 1,883 | 3,359 | 10,015 | 11,503 |
 | Validity | 100% | 100% | 100% | 100% |
 | Originality | 0% | 44% | 81% | 84% |
 | Diversity | 0.91 | 0.90 | 0.88 | 0.89 |
 | Drug-likeness | 79% | 74% | 72% | 72% |
 
-**Note**: The DAL boosted the dataset size dramatically while keeping validity perfect, though drug-likeness dipped slightly.
+Note: The DAL boosted the dataset size dramatically while keeping validity perfect, though drug-likeness dipped slightly.
 
 ### Model Performance
 
 | Metric | LLM Alone | GAN + LLM |
-|--------|-----------|-----------|
 | Validity | 16% | 100% |
 | Originality | 100% | 100% |
 | Diversity | 0.56 | 0.85 |
 | Drug-likeness | 16% | 95% |
 | Accuracy | 9% | 62% (76% with DAL) |
 
-**Note**: The GAN + LLM hybrid shines with 100% validity and 95% drug-likeness, hitting 76% accuracy with DAL support.
+Note: The GAN + LLM hybrid shines with 100% validity and 95% drug-likeness, hitting 76% accuracy with DAL support.
 
 ## 🌟 Why It Matters
 
@@ -280,13 +278,13 @@ const promptMessages = [
 
 The complete RAG pipeline follows these steps during each interaction:
 
-1. **Query Processing** - User's F1 question is received by the Next.js API route
-2. **Embedding Generation** - The question is transformed into a vector embedding
-3. **Similarity Search** - The vector database is queried for relevant F1 content
-4. **Context Assembly** - Retrieved documents are formatted with source information
-5. **Prompt Construction** - A structured prompt combines the context, conversation history, and user question
-6. **Response Generation** - GPT-4 generates a response grounded in the provided context
-7. **Streaming Delivery** - The response is streamed token-by-token to the user interface
+1. Query Processing - User's F1 question is received by the Next.js API route
+2. Embedding Generation - The question is transformed into a vector embedding
+3. Similarity Search - The vector database is queried for relevant F1 content
+4. Context Assembly - Retrieved documents are formatted with source information
+5. Prompt Construction - A structured prompt combines the context, conversation history, and user question
+6. Response Generation - GPT-4 generates a response grounded in the provided context
+7. Streaming Delivery - The response is streamed token-by-token to the user interface
 
 This architecture ensures that responses are informed by the latest F1 information while maintaining the natural conversational abilities of advanced language models.
 
@@ -294,10 +292,10 @@ This architecture ensures that responses are informed by the latest F1 informati
 
 The React-based frontend creates an intuitive chat experience using the Vercel AI SDK. Key features include:
 
-- **Real-time Response Streaming** - Text appears progressively for immediate feedback
-- **Context-aware Suggestions** - Follow-up questions are generated based on conversation context
-- **Mobile-responsive Design** - Layout adapts to different screen sizes with optimized interactions
-- **F1 Theming** - Visual design elements reflect Formula 1 branding and aesthetics
+- Real-time Response Streaming - Text appears progressively for immediate feedback
+- Context-aware Suggestions - Follow-up questions are generated based on conversation context
+- Mobile-responsive Design - Layout adapts to different screen sizes with optimized interactions
+- F1 Theming - Visual design elements reflect Formula 1 branding and aesthetics
 
 The user interface manages state using React hooks and provides smooth transitions between conversation states, with automatic scrolling to follow new messages.
 
@@ -305,10 +303,10 @@ The user interface manages state using React hooks and provides smooth transitio
 
 A sophisticated document processing pipeline maintains the F1 knowledge base:
 
-- **Content Curation** - F1 articles, regulations, statistics, and historical data are sourced from authoritative sites
-- **Document Processing** - Content is cleaned, segmented, and prepared for embedding
-- **Batched Indexing** - Documents are embedded and stored in batches of 20 for efficiency
-- **Regular Updates** - The knowledge base is refreshed with new F1 content after races and announcements
+- Content Curation - F1 articles, regulations, statistics, and historical data are sourced from authoritative sites
+- Document Processing - Content is cleaned, segmented, and prepared for embedding
+- Batched Indexing - Documents are embedded and stored in batches of 20 for efficiency
+- Regular Updates - The knowledge base is refreshed with new F1 content after races and announcements
 
 This systematic approach to knowledge management ensures that the chatbot has access to comprehensive and current Formula 1 information.
 
@@ -316,11 +314,11 @@ This systematic approach to knowledge management ensures that the chatbot has ac
 
 The implementation includes several performance optimizations:
 
-- **Vector Search Efficiency** - Approximate nearest neighbor algorithms accelerate similarity search
-- **Response Caching** - Common F1 questions are cached to reduce embedding and retrieval costs
-- **Incremental Loading** - UI components load progressively to improve perceived performance
-- **Error Handling** - Robust fallback mechanisms ensure service continuity during API disruptions
-- **Resource Conservation** - Careful management of API calls to balance cost and performance
+- Vector Search Efficiency - Approximate nearest neighbor algorithms accelerate similarity search
+- Response Caching - Common F1 questions are cached to reduce embedding and retrieval costs
+- Incremental Loading - UI components load progressively to improve perceived performance
+- Error Handling - Robust fallback mechanisms ensure service continuity during API disruptions
+- Resource Conservation - Careful management of API calls to balance cost and performance
 
 These optimizations create a responsive, reliable chatbot experience even under high load conditions.
 
@@ -328,10 +326,10 @@ These optimizations create a responsive, reliable chatbot experience even under 
 
 The F1 RAG Chatbot is deployed on Railway with containerization for consistent environments:
 
-- **Docker Containerization** - Ensures consistent runtime across environments
-- **Environment Variable Management** - Secures API keys and configuration
-- **Auto-scaling** - Adapts to traffic patterns for cost efficiency
-- **Monitoring** - Tracks usage patterns and performance metrics
+- Docker Containerization - Ensures consistent runtime across environments
+- Environment Variable Management** - Secures API keys and configuration
+- Auto-scaling - Adapts to traffic patterns for cost efficiency
+- Monitoring - Tracks usage patterns and performance metrics
 
 This infrastructure provides a stable foundation for delivering the F1 chatbot to global users with minimal latency and high reliability.
 
@@ -339,10 +337,10 @@ This infrastructure provides a stable foundation for delivering the F1 chatbot t
 
 The F1 RAG architecture delivers a significant improvement in accuracy and relevance for Formula 1 information compared to general-purpose chatbots. Future enhancements could include:
 
-- **Multi-modal Support** - Visual recognition of F1 car components and track layouts
-- **Live Data Integration** - Real-time race information during Grand Prix weekends
-- **Personalization** - User preference tracking for favorite teams and drivers
-- **Advanced Analytics** - F1 performance predictions and statistical analysis
+- Multi-modal Support - Visual recognition of F1 car components and track layouts
+- Live Data Integration - Real-time race information during Grand Prix weekends
+- Personalization - User preference tracking for favorite teams and drivers
+- Advanced Analytics - F1 performance predictions and statistical analysis
 
 By combining vector search with generative AI, this architecture creates a specialized knowledge system that delivers the kind of detailed, accurate F1 information that passionate fans demand.
 
