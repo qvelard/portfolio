@@ -21,8 +21,9 @@ export const projects: Project[] = [
     title: 'Biomolecule Generation with Anti-oxydant and Anti-inflammatory properties',
     slug: 'biomolecule-generation',
     description: 'This Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabanes at École des Mines de Nancy, leverages deep learning to generate biomolecules with anti-inflammatory (AI) and antioxidant (AO) properties. This work supports the "Biomolecules 4 Bioeconomy" framework, with potential applications in pharmaceuticals, agrochemicals, and cosmetics.',
-    longDescription: `
-      This Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabanes at École des Mines de Nancy, leverages deep learning to generate biomolecules with anti-inflammatory (AI) and antioxidant (AO) properties. This work supports the "Biomolecules 4 Bioeconomy" framework, with potential applications in pharmaceuticals, agrochemicals, and cosmetics.
+    longDescription: `## Project Overview
+
+This Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabanes at École des Mines de Nancy, leverages deep learning to generate biomolecules with anti-inflammatory (AI) and antioxidant (AO) properties. This work supports the "Biomolecules 4 Bioeconomy" framework, with potential applications in pharmaceuticals, agrochemicals, and cosmetics.
 
 ## Objectives
 
@@ -94,8 +95,7 @@ This project speeds up biomolecule discovery for critical industries, offering a
 
 ## 🚧 Challenges and Future Directions
 
-Data scarcity, 76% prediction accuracy, and complex biological interactions remain hurdles requiring more validation. Next steps could involve bigger datasets, reinforcement learning, or even quantum computing for better efficiency.
-    `,
+Data scarcity, 76% prediction accuracy, and complex biological interactions remain hurdles requiring more validation. Next steps could involve bigger datasets, reinforcement learning, or even quantum computing for better efficiency.`,
     image: 'https://qvelard.github.io/portfolio/v1/biomol.webp',
     technologies: ['Python', 'HuggingFace', 'ChemBERTa', 'ChemGPT'],
     category: 'machine-learning',
@@ -110,8 +110,9 @@ Data scarcity, 76% prediction accuracy, and complex biological interactions rema
     title: 'Project QILLER: Quantum Incremental Learning for Lifelong Erosion Resilience',
     slug: 'project-qiller',
     description: 'QILLER introduces a novel quantum machine learning method that addresses catastrophic forgetting in variational quantum algorithms (VQAs). Published in IEEE Transactions on Neural Networks and Learning Systems, it combines representation learning, knowledge distillation, and exemplar memory to enable lifelong learning in quantum computing frameworks.',
-    longDescription: `
-      The paper introduces a new method called QILLER, which stands for "Quantum Incremental Learning for Lifelong Erosion Resilience." It's published in the IEEE Transactions on Neural Networks and Learning Systems and focuses on improving how quantum machine learning models learn over time without forgetting what they've already mastered.
+    longDescription: `## Project Overview
+
+The paper introduces a new method called QILLER, which stands for "Quantum Incremental Learning for Lifelong Erosion Resilience." It's published in the IEEE Transactions on Neural Networks and Learning Systems and focuses on improving how quantum machine learning models learn over time without forgetting what they've already mastered.
 
 Catastrophic forgetting is a key problem this paper addresses. In both classical and quantum machine learning, this happens when a model learns new information but loses its ability to remember older knowledge—like forgetting how to ride a bike after learning to drive a car. The authors show this issue exists in variational quantum algorithms (VQAs), a type of quantum machine learning model, and aim to fix it.
 
@@ -187,8 +188,7 @@ Quantum hardware keeps accuracies low for many classes—think 16-29% for 10 cla
 
 As quantum tech improves, QILLER could scale to bigger, more complex tasks, making quantum lifelong learning a reality.
 
-For more detailed insights, you can download the full project report below.
-    `,
+For more detailed insights, you can download the full project report below.`,
     image: 'https://qvelard.github.io/portfolio/v1/quiller.webp',
     technologies: ['Python', 'QisKit', 'PendlePendle', 'AWS Qunatum Computing'],
     category: 'machine-learning',
@@ -202,8 +202,9 @@ For more detailed insights, you can download the full project report below.
     title: 'F1 RAG Chatbot: Formula 1 Retrieval-Augmented Generation System',
     slug: 'f1-rag-chatbot',
     description: 'Le F1 RAG Chatbot combine une base de connaissances vectorielle, un pipeline d\'embedddings, un système de retrieval avancé et GPT-4 pour fournir des réponses précises et actualisées sur la Formule 1.',
-    longDescription: `
-      The F1 RAG Chatbot combines advanced retrieval techniques with generative AI to deliver accurate Formula 1 information. By implementing a Retrieval Augmented Generation (RAG) architecture, the system overcomes the limitations of traditional LLMs by grounding responses in a specialized F1 knowledge base.
+    longDescription: `## Project Overview
+
+The F1 RAG Chatbot combines advanced retrieval techniques with generative AI to deliver accurate Formula 1 information. By implementing a Retrieval Augmented Generation (RAG) architecture, the system overcomes the limitations of traditional LLMs by grounding responses in a specialized F1 knowledge base.
 
 ## 🏎️ Architecture Components
 
@@ -345,8 +346,7 @@ The F1 RAG architecture delivers a significant improvement in accuracy and relev
 
 By combining vector search with generative AI, this architecture creates a specialized knowledge system that delivers the kind of detailed, accurate F1 information that passionate fans demand.
 
-Want to give it a try? You can access the F1 RAG Chatbot app at the link below.
-    `,
+Want to give it a try? You can access the F1 RAG Chatbot app at the link below.`,
     image: 'https://qvelard.github.io/portfolio/v1/simple-rag.webp',
     technologies: ['Node.js', 'TypeScript', 'OpenAI', 'Astra DB', 'Langchain.js', 'Vercel AI SDK', 'Railway'],
     category: 'tool',
