@@ -41,6 +41,15 @@ export function generateMetadata({ params }: ProjectPageProps) {
   };
 }
 
+// Ajout du parser markdown simple pour le gras et les retours à la ligne
+function parseBoldWithLineBreaks(text: string) {
+  // Gras : **mot** => <strong>mot</strong>
+  let html = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Retours à la ligne : \n => <br />
+  html = html.replace(/\n/g, '<br />');
+  return html;
+}
+
 export default function ProjectPage({ params }: ProjectPageProps) {
   const project = getProjectBySlug(params.slug);
 
@@ -205,9 +214,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 // Regular paragraph
                 if (trimmedParagraph.length > 0) {
                   return (
-                    <p key={index} className="mb-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
-                      {trimmedParagraph}
-                    </p>
+                    <p
+                      key={index}
+                      className="mb-4 text-muted-foreground leading-relaxed text-sm sm:text-base"
+                      dangerouslySetInnerHTML={{ __html: parseBoldWithLineBreaks(trimmedParagraph) }}
+                    />
                   );
                 }
                 

@@ -29,16 +29,16 @@ This Project, authored by Quentin Velard and Salma Bouaouda under Guenael Cabane
 
 The project focuses on two main goals:
 
-1. **State-of-the-Art Review**: Analyze existing deep learning methods for molecular generation and identify pretrained models to adapt.
-2. **Model Training**: Develop neural networks using transfer learning to create biomolecules with AI and AO properties.
+1. State-of-the-Art Review: Analyze existing deep learning methods for molecular generation and identify pretrained models to adapt.
+2. Model Training: Develop neural networks using transfer learning to create biomolecules with AI and AO properties.
 
 With a molecular space of approximately 10^60 possibilities and limited open-source data, traditional discovery is slow—deep learning aims to change that!
 
 ## 🗝️ Key Concepts Explained
 
-- **Anti-inflammatory (AI) Biomolecules**: Reduce inflammation by targeting mediators like cytokines (e.g., curcumin, NSAIDs).
-- **Antioxidant (AO) Biomolecules**: Neutralize free radicals to prevent damage (e.g., vitamins C and E, BHT).
-- **SMILES Notation**: Represents molecular structures as text (e.g., "CCO" for ethanol) for computational use.
+- Anti-inflammatory (AI) Biomolecules: Reduce inflammation by targeting mediators like cytokines (e.g., curcumin, NSAIDs).
+- Antioxidant (AO) Biomolecules: Neutralize free radicals to prevent damage (e.g., vitamins C and E, BHT).
+- SMILES Notation: Represents molecular structures as text (e.g., "CCO" for ethanol) for computational use.
 
 ## 🔧 Methodology
 
@@ -246,10 +246,10 @@ async function generateEmbedding(text) {
 
 The retrieval system performs vector similarity search to find content relevant to user questions. Rather than simple retrieval, the system employs sophisticated ranking and filtering:
 
-- **Similarity Threshold Filtering** - Only documents above 0.70 cosine similarity are considered
-- **Source Authority Weighting** - Official F1 sources receive priority in retrieval
-- **Recency Prioritization** - More recent documents are favored for time-sensitive topics
-- **Contextual Diversity** - The system seeks to include varied perspectives when appropriate
+- Similarity Threshold Filtering - Only documents above 0.70 cosine similarity are considered
+- Source Authority Weighting - Official F1 sources receive priority in retrieval
+- Recency Prioritization - More recent documents are favored for time-sensitive topics
+- Contextual Diversity - The system seeks to include varied perspectives when appropriate
 
 This carefully tuned retrieval process ensures that the LLM receives the most relevant, accurate, and up-to-date Formula 1 information as context for generating responses.
 
