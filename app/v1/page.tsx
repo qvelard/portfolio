@@ -264,10 +264,10 @@ export default function HomePage() {
             </Card>
           </div>
 
-          <div className="container mx-auto px-3 sm:px-8 lg:px-16">
+          <div className="text-center">
             <Button asChild variant="outline" size="lg">
               <a href="mailto:quentin@velard.fr">
-                <Mail className="mr-2 h-4 w-4" />
+                <Mail className="max-w-2xl mx-auto" />
                 Paris, France | quentin@velard.fr
               </a>
             </Button>
