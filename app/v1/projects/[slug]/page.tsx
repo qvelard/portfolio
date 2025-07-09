@@ -58,7 +58,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="container py-10">
+    <div className="container mx-auto px-3 sm:px-8 lg:px-16">
       <div className="space-y-8">
         {/* Breadcrumb */}
         <Breadcrumb
