@@ -61,7 +61,7 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
             <Card className="group hover:shadow-xl transition-all duration-300">
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Project Image */}
-                <div className=""relative overflow-hidden aspect-[16/9] md:aspect-[4/3]"">
+                <div className="relative overflow-hidden aspect-[16/9] md:aspect-[4/3]">
                   <img
                     src={projects[currentIndex].image}
                     alt={projects[currentIndex].title}
