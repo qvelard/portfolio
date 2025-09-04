@@ -61,11 +61,11 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
             <Card className="group hover:shadow-xl transition-all duration-300">
               <div className="grid md:grid-cols-2 gap-0">
                 {/* Project Image */}
-                <div className="relative overflow-hidden aspect-[16/9] md:aspect-[4/3]">
+                <div className="relative overflow-hidden rounded-lg w-full h-80 md:h-96">
                   <img
                     src={projects[currentIndex].image}
                     alt={projects[currentIndex].title}
-                    className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="absolute top-1/2 left-1/2 w-auto h-full max-w-none max-h-none -translate-x-1/2 -translate-y-1/2 object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
