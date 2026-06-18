@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github, Calendar, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -23,7 +22,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: ProjectPageProps) {
   const project = getProjectBySlug(params.slug);
-  
+
   if (!project) {
     return {
       title: 'Project Not Found',
@@ -41,11 +40,9 @@ export function generateMetadata({ params }: ProjectPageProps) {
   };
 }
 
-// Ajout du parser markdown simple pour le gras et les retours à la ligne
+// Simple markdown parser for bold and line breaks
 function parseBoldWithLineBreaks(text: string) {
-  // Gras : **mot** => <strong>mot</strong>
   let html = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // Retours à la ligne : \n => <br />
   html = html.replace(/\n/g, '<br />');
   return html;
 }
@@ -58,105 +55,110 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="container mx-auto px-3 sm:px-8 lg:px-16">
+    <div className="container mx-auto px-3 sm:px-8 lg:px-16 py-10">
       <div className="space-y-8">
         {/* Breadcrumb */}
         <Breadcrumb
           items={[
-            { label: 'Home', href: '/public/v1' },
-            { label: 'Projects', href: '/public/v1/projects' },
-            { label: project.title, href: `/public/v1/projects/${project.slug}` },
+            { label: 'Home', href: '/' },
+            { label: 'Projects', href: '/projects' },
+            { label: project.title, href: `/projects/${project.slug}` },
           ]}
         />
 
         {/* Back button */}
         <Button asChild variant="ghost" className="mb-6">
-          <Link href="/v1/projects">
+          <Link href="/projects">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Projects
           </Link>
         </Button>
 
         {/* Project Header */}
-        <div className="container mx-auto px-3 sm:px-8 lg:px-16">
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              {project.title}
-            </h1>
-            
-            <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <span>{project.date}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                <span>{project.role}</span>
-              </div>
-            </div>
+        <div className="space-y-4">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            {project.title}
+          </h1>
 
-            <p className="text-lg text-muted-foreground max-w-3xl">
-              {project.description}
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <Badge key={tech} variant="secondary">
-                  {tech}
-                </Badge>
-              ))}
+          <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              <span>{project.date}</span>
             </div>
-
-            <div className="flex flex-wrap gap-3">
-              {project.github && (
-                <Button asChild>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="mr-2 h-4 w-4" />
-                    View Source
-                  </a>
-                </Button>
-              )}
-              {project.demo && (
-                <Button asChild variant="outline">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </a>
-                </Button>
-              )}
-              {project.blog && (
-                <Button asChild variant="outline">
-                  <a
-                    href={project.blog}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Read Article
-                  </a>
-                </Button>
-              )}
+            <div className="flex items-center gap-2">
+              <User className="h-4 w-4" />
+              <span>{project.role}</span>
             </div>
+          </div>
+
+          <p className="text-lg text-muted-foreground max-w-3xl">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech) => (
+              <Badge key={tech} variant="secondary">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {project.github && (
+              <Button asChild>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="mr-2 h-4 w-4" />
+                  View Source
+                </a>
+              </Button>
+            )}
+            {project.demo && (
+              <Button asChild variant="outline">
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  Live Demo
+                </a>
+              </Button>
+            )}
+            {project.blog && (
+              <Button asChild variant="outline">
+                <a
+                  href={project.blog}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read Article
+                </a>
+              </Button>
+            )}
           </div>
         </div>
 
-
+        {/* Hero Image */}
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border bg-muted">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="absolute inset-0 h-full w-full object-contain p-4 sm:p-8"
+          />
+        </div>
 
         {/* Project Details */}
         <Card>
-          <CardContent className="container mx-auto px-3 sm:px-8 lg:px-16">
+          <CardContent className="p-6 sm:p-8">
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <h2 className="text-2xl font-bold mb-6 text-foreground">Project Overview</h2>
               {project.longDescription.split('\n\n').map((paragraph, index) => {
                 const trimmedParagraph = paragraph.trim();
-                
+
                 // Check if paragraph is a heading (starts with # or contains specific patterns)
                 if (trimmedParagraph.startsWith('##') || trimmedParagraph.startsWith('🗝️') || trimmedParagraph.startsWith('🔧') || trimmedParagraph.startsWith('📈') || trimmedParagraph.startsWith('🌟') || trimmedParagraph.startsWith('🚧')) {
                   return (
@@ -165,7 +167,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     </h3>
                   );
                 }
-                
+
                 // Check if paragraph is a subheading (starts with ### or specific patterns)
                 if (trimmedParagraph.startsWith('###') || trimmedParagraph.startsWith('📋') || trimmedParagraph.startsWith('⚡') || trimmedParagraph.startsWith('🎯')) {
                   return (
@@ -174,15 +176,15 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     </h4>
                   );
                 }
-                
+
                 // Check if paragraph is a table (contains | characters)
                 if (trimmedParagraph.includes('|') && trimmedParagraph.split('|').length > 2) {
                   const rows = trimmedParagraph.split('\n').filter(row => row.trim().length > 0);
-                  const tableRows = rows.map((row, rowIndex) => {
+                  const tableRows = rows.map((row) => {
                     const cells = row.split('|').map(cell => cell.trim()).filter(cell => cell.length > 0);
                     return cells;
                   });
-                  
+
                   return (
                     <div key={index} className="mb-6 overflow-x-auto">
                       <table className="w-full border-collapse border border-muted-foreground/20">
@@ -201,7 +203,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     </div>
                   );
                 }
-                
+
                 // Check if paragraph is a code block or technical content
                 if (trimmedParagraph.includes('//') || trimmedParagraph.includes('{') || trimmedParagraph.includes('}')) {
                   return (
@@ -210,7 +212,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     </pre>
                   );
                 }
-                
+
                 // Regular paragraph
                 if (trimmedParagraph.length > 0) {
                   return (
@@ -221,7 +223,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     />
                   );
                 }
-                
+
                 return null;
               })}
             </div>
@@ -230,10 +232,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Navigation to other projects */}
         <Separator />
-        
+
         <div className="text-center">
           <Button asChild variant="outline" size="lg">
-            <Link href="/v1/projects">
+            <Link href="/projects">
               View All Projects
             </Link>
           </Button>

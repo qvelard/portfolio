@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Pause, Play } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -13,91 +13,111 @@ interface ProjectsCarouselProps {
   projects: Project[];
 }
 
+const AUTOPLAY_MS = 6000;
+
 export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [[currentIndex, direction], setState] = useState<[number, number]>([0, 0]);
+  const [isPlaying, setIsPlaying] = useState(true);
 
-  // Auto-play functionality
+  const count = projects.length;
+
+  const paginate = useCallback(
+    (dir: number) => {
+      setState(([prev]) => [(prev + dir + count) % count, dir]);
+    },
+    [count]
+  );
+
+  const goTo = (index: number) => {
+    setState(([prev]) => [index, index > prev ? 1 : -1]);
+  };
+
+  // Auto-play
   useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % projects.length);
-    }, 5000);
-
+    if (!isPlaying || count <= 1) return;
+    const interval = setInterval(() => paginate(1), AUTOPLAY_MS);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, projects.length]);
+  }, [isPlaying, count, paginate, currentIndex]);
 
-  const nextProject = () => {
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
-    setIsAutoPlaying(false);
+  // Keyboard navigation
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') paginate(-1);
+      if (e.key === 'ArrowRight') paginate(1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [paginate]);
+
+  if (count === 0) return null;
+
+  const project = projects[currentIndex];
+
+  const variants = {
+    enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 80 : -80 }),
+    center: { opacity: 1, x: 0 },
+    exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -80 : 80 }),
   };
-
-  const prevProject = () => {
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-    setIsAutoPlaying(false);
-  };
-
-  const goToProject = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-  };
-
-  if (projects.length === 0) return null;
 
   return (
-    <div className="relative">
-      {/* Main Carousel */}
-      <div className="relative overflow-hidden rounded-lg">
-        <AnimatePresence mode="wait">
+    <div
+      className="relative"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Featured projects"
+      onMouseEnter={() => setIsPlaying(false)}
+      onMouseLeave={() => setIsPlaying(true)}
+    >
+      <div className="relative overflow-hidden rounded-2xl border bg-card shadow-sm">
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, x: 300 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -300 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="w-full"
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Card className="group hover:shadow-xl transition-all duration-300">
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* Project Image */}
-                <div className="relative overflow-hidden rounded-lg w-full h-80 md:h-96">
+            <Card className="border-0 shadow-none bg-transparent">
+              <div className="grid md:grid-cols-2">
+                {/* Project Image — framed, never cropped */}
+                <div className="relative h-64 sm:h-80 md:h-auto md:min-h-[440px] overflow-hidden bg-gradient-to-br from-muted/60 to-muted">
                   <img
-                    src={projects[currentIndex].image}
-                    alt={projects[currentIndex].title}
-                    className="absolute top-1/2 left-1/2 w-auto h-full max-w-none max-h-none -translate-x-1/2 -translate-y-1/2 object-contain"
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 h-full w-full object-contain p-6 sm:p-8"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 {/* Project Content */}
-                <CardContent className="p-8 flex flex-col justify-center space-y-6">
+                <CardContent className="flex flex-col justify-center gap-6 p-8 md:p-10">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span>{projects[currentIndex].date}</span>
-                      <span>•</span>
-                      <span>{projects[currentIndex].role}</span>
+                      <span>{project.date}</span>
+                      <span aria-hidden>•</span>
+                      <span>{project.role}</span>
                     </div>
-                    
-                    <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
-                      {projects[currentIndex].title}
+
+                    <h3 className="text-2xl font-bold leading-tight">
+                      {project.title}
                     </h3>
-                    
-                    <p className="text-muted-foreground leading-relaxed">
-                      {projects[currentIndex].description}
+
+                    <p className="text-muted-foreground leading-relaxed line-clamp-4">
+                      {project.description}
                     </p>
                   </div>
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
-                    {projects[currentIndex].technologies.slice(0, 4).map((tech) => (
+                    {project.technologies.slice(0, 4).map((tech) => (
                       <Badge key={tech} variant="secondary" className="text-xs">
                         {tech}
                       </Badge>
                     ))}
-                    {projects[currentIndex].technologies.length > 4 && (
+                    {project.technologies.length > 4 && (
                       <Badge variant="outline" className="text-xs">
-                        +{projects[currentIndex].technologies.length - 4}
+                        +{project.technologies.length - 4}
                       </Badge>
                     )}
                   </div>
@@ -105,31 +125,23 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-3">
                     <Button asChild>
-                      <Link href={`/v1/projects/${projects[currentIndex].slug}`}>
+                      <Link href={`/projects/${project.slug}`}>
                         View Details
                       </Link>
                     </Button>
-                    
-                    {projects[currentIndex].github && (
+
+                    {project.github && (
                       <Button asChild variant="outline" size="sm">
-                        <a
-                          href={projects[currentIndex].github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
                           <Github className="mr-2 h-4 w-4" />
                           Code
                         </a>
                       </Button>
                     )}
-                    
-                    {projects[currentIndex].demo && (
+
+                    {project.demo && (
                       <Button asChild variant="outline" size="sm">
-                        <a
-                          href={projects[currentIndex].demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="mr-2 h-4 w-4" />
                           Demo
                         </a>
@@ -143,44 +155,65 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
         </AnimatePresence>
 
         {/* Navigation Arrows */}
-        <Button
-          variant="outline"
-          size="sm"
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm hover:bg-background/90 z-10"
-          onClick={prevProject}
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-        
-        <Button
-          variant="outline"
-          size="sm"
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm hover:bg-background/90 z-10"
-          onClick={nextProject}
-        >
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+        {count > 1 && (
+          <>
+            <Button
+              variant="outline"
+              size="icon"
+              aria-label="Previous project"
+              className="absolute left-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background z-10"
+              onClick={() => paginate(-1)}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+
+            <Button
+              variant="outline"
+              size="icon"
+              aria-label="Next project"
+              className="absolute right-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background z-10"
+              onClick={() => paginate(1)}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </>
+        )}
       </div>
 
-      {/* Indicators */}
-      <div className="flex justify-center gap-2 mt-6">
-        {projects.map((_, index) => (
+      {/* Controls: indicators + play/pause + counter */}
+      {count > 1 && (
+        <div className="mt-6 flex items-center justify-center gap-4">
           <button
-            key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? 'bg-primary scale-110'
-                : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-            }`}
-            onClick={() => goToProject(index)}
-          />
-        ))}
-      </div>
+            type="button"
+            aria-label={isPlaying ? 'Pause autoplay' : 'Play autoplay'}
+            onClick={() => setIsPlaying((p) => !p)}
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+          </button>
 
-      {/* Project Counter */}
-      <div className="text-center mt-4 text-sm text-muted-foreground">
-        {currentIndex + 1} of {projects.length}
-      </div>
+          <div className="flex items-center gap-2">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Go to project ${index + 1}`}
+                aria-current={index === currentIndex}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'w-6 bg-primary'
+                    : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+                onClick={() => goTo(index)}
+              />
+            ))}
+          </div>
+
+          <span className="text-sm tabular-nums text-muted-foreground">
+            {currentIndex + 1} / {count}
+          </span>
+        </div>
+      )}
     </div>
   );
 }

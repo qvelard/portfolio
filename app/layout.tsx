@@ -2,6 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Toaster } from '@/components/ui/sonner';
+import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 import dynamic from 'next/dynamic';
 
 const ThemeProvider = dynamic(
@@ -17,10 +19,11 @@ export const metadata: Metadata = {
   keywords: ['machine learning', 'quantum machine learning', 'robotics', 'portfolio'],
   authors: [{ name: 'Quentin Velard' }],
   creator: 'Quentin Velard',
+  metadataBase: new URL('https://velard.fr'),
   icons: {
-    icon: '/v1/favicon.ico',
-    shortcut: '/v1/favicon.ico',
-    apple: '/v1/favicon.ico',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   openGraph: {
     type: 'website',
@@ -63,7 +66,11 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <div className="min-h-screen flex flex-col">
+            <SiteHeader />
+            <main className="flex-1">{children}</main>
+            <SiteFooter />
+          </div>
           <Toaster />
         </ThemeProvider>
       </body>

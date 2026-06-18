@@ -9,7 +9,7 @@ const socialLinks = [
   },
   {
     name: 'LinkedIn',
-    href: 'www.linkedin.com/in/quentin-velard',
+    href: 'https://www.linkedin.com/in/quentin-velard',
     icon: Linkedin,
   },
   {
@@ -35,11 +35,11 @@ export function SiteFooter() {
       <div className="container mx-auto px-3 sm:px-8 lg:px-16">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:items-start">
           <div className="flex flex-col items-center gap-2 md:items-start">
-            <Link href="/v1" className="font-bold text-lg">
+            <Link href="/" className="font-bold text-lg">
               Quentin Velard
             </Link>
             <p className="text-sm text-muted-foreground">
-              Data Scientist
+              Machine Learning Engineer
             </p>
           </div>
           

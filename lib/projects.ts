@@ -94,11 +94,11 @@ This project speeds up biomolecule discovery for critical industries, offering a
 ## 🚧 Challenges and Future Directions
 
 Data scarcity, 76% prediction accuracy, and complex biological interactions remain hurdles requiring more validation. Next steps could involve bigger datasets, reinforcement learning, or even quantum computing for better efficiency.`,
-    image: 'https://qvelard.github.io/portfolio/v1/biomol.webp',
+    image: '/biomol.webp',
     technologies: ['Python', 'HuggingFace', 'ChemBERTa', 'ChemGPT'],
     category: 'machine-learning',
     github: 'https://github.com/qvelard/BiomolGeneration',
-    demo: 'https://velard.fr/v1/biomol-pres.pdf',
+    demo: '/biomol-pres.pdf',
     date: '2024',
     role: 'Academic Project',
     featured: true,
@@ -187,10 +187,10 @@ Quantum hardware keeps accuracies low for many classes—think 16-29% for 10 cla
 As quantum tech improves, QILLER could scale to bigger, more complex tasks, making quantum lifelong learning a reality.
 
 For more detailed insights, you can download the full project report below.`,
-    image: 'https://qvelard.github.io/portfolio/v1/quiller.webp',
-    technologies: ['Python', 'QisKit', 'PendlePendle', 'AWS Qunatum Computing'],
+    image: '/quiller.webp',
+    technologies: ['Python', 'Qiskit', 'PennyLane', 'AWS Braket'],
     category: 'machine-learning',
-    demo: 'https://velard.fr/v1/qiller.pdf',
+    demo: '/qiller.pdf',
     date: '2024',
     role: 'Intern',
     featured: true,
@@ -345,7 +345,7 @@ The F1 RAG architecture delivers a significant improvement in accuracy and relev
 By combining vector search with generative AI, this architecture creates a specialized knowledge system that delivers the kind of detailed, accurate F1 information that passionate fans demand.
 
 Want to give it a try? You can access the F1 RAG Chatbot app at the link below.`,
-    image: 'https://qvelard.github.io/portfolio/v1/simple-rag.webp',
+    image: '/simple-rag.webp',
     technologies: ['Node.js', 'TypeScript', 'OpenAI', 'Astra DB', 'Langchain.js', 'Vercel AI SDK', 'Railway'],
     category: 'tool',
     github: 'https://github.com/qvelard/RAG_chatbot',
@@ -358,10 +358,8 @@ Want to give it a try? You can access the F1 RAG Chatbot app at the link below.`
 
 export const categories = [
   { id: 'all', name: 'All Projects' },
-  { id: 'web-app', name: 'Web Apps' },
-  { id: 'mobile', name: 'Mobile' },
+  { id: 'machine-learning', name: 'Machine Learning' },
   { id: 'tool', name: 'Tools' },
-  { id: 'ml', name: 'Machine Learning' },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {

@@ -10,9 +10,8 @@ import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 
 const navigation = [
-  { name: 'Home', href: '/v1' },
-  { name: 'Projects', href: '/v1/projects' },
-  { name: 'Resume', href: 'https://qvelard.github.io/portfolio/v1/resume.pdf', external: true },
+  { name: 'Home', href: '/' },
+  { name: 'Projects', href: '/projects' },
 ];
 
 export function SiteHeader() {
@@ -28,7 +27,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between pl-8 lg:pl-16">
-        <Link href="/v1" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2">
           <motion.div
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.3 }}
@@ -41,37 +40,25 @@ export function SiteHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navigation.map((item) => (
-            item.external ? (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium transition-colors hover:text-primary"
-              >
-                {item.name}
-              </a>
-            ) : (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  'relative text-sm font-medium transition-colors hover:text-primary',
-                  pathname === item.href
-                    ? 'text-primary'
-                    : 'text-muted-foreground'
-                )}
-              >
-                {item.name}
-                {pathname === item.href && (
-                  <motion.div
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                    layoutId="activeTab"
-                    initial={false}
-                  />
-                )}
-              </Link>
-            )
+            <Link
+              key={item.name}
+              href={item.href}
+              className={cn(
+                'relative text-sm font-medium transition-colors hover:text-primary',
+                pathname === item.href
+                  ? 'text-primary'
+                  : 'text-muted-foreground'
+              )}
+            >
+              {item.name}
+              {pathname === item.href && (
+                <motion.div
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                  layoutId="activeTab"
+                  initial={false}
+                />
+              )}
+            </Link>
           ))}
         </nav>
 
@@ -118,32 +105,19 @@ export function SiteHeader() {
         >
           <div className="container py-4 space-y-2 pl-8 lg:pl-16">
             {navigation.map((item) => (
-              item.external ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block px-3 py-2 text-sm font-medium transition-colors hover:text-primary"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={cn(
-                    'block px-3 py-2 text-sm font-medium transition-colors hover:text-primary',
-                    pathname === item.href
-                      ? 'text-primary bg-primary/10'
-                      : 'text-muted-foreground'
-                  )}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  'block px-3 py-2 text-sm font-medium transition-colors hover:text-primary',
+                  pathname === item.href
+                    ? 'text-primary bg-primary/10'
+                    : 'text-muted-foreground'
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
             ))}
           </div>
         </motion.div>
