@@ -1,7 +1,7 @@
-# Portfolio — Quentin Velard
+# Landing page
 
-Personal portfolio of **Quentin Velard**, Machine Learning Engineer specializing in
-computer vision and NLP. Built with Next.js and Tailwind CSS, statically exported and
+A single stylized landing page: an animated **QV** monogram over an interactive
+particle field. Built with Next.js and Tailwind CSS, statically exported and
 deployed to [velard.fr](https://velard.fr) via GitHub Pages.
 
 ## 🚀 Stack
@@ -9,8 +9,7 @@ deployed to [velard.fr](https://velard.fr) via GitHub Pages.
 - **Framework**: Next.js 13 (App Router, static export)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS + [shadcn/ui](https://ui.shadcn.com/)
-- **Animation**: Framer Motion
-- **Contact form**: [Formspree](https://formspree.io/) (no backend required)
+- **Animation**: Framer Motion + a native `<canvas>` particle field
 - **Hosting**: GitHub Pages on a custom domain (`velard.fr`)
 
 ## 📦 Getting Started
@@ -44,29 +43,23 @@ workflow (`.github/workflows/nextjs.yml`), which builds the static site, adds th
 
 ```
 portfolio/
-├── app/                      # Next.js App Router
-│   ├── layout.tsx            # Root layout (header, footer, theme, metadata)
-│   ├── page.tsx              # Home page
-│   └── projects/
-│       ├── page.tsx          # Projects listing
-│       └── [slug]/page.tsx   # Project detail page
-├── components/               # React components
+├── app/
+│   ├── layout.tsx            # Root layout (theme, metadata)
+│   ├── page.tsx              # Landing page (QV monogram + particle field)
+│   └── globals.css           # Global styles
+├── components/
 │   ├── ui/                   # shadcn/ui primitives
-│   ├── projects-carousel.tsx # Featured-projects carousel
-│   ├── site-header.tsx
-│   ├── site-footer.tsx
-│   └── contact-form.tsx
-├── lib/
-│   └── projects.ts           # Project data + helpers
-├── public/                   # Static assets (images, PDFs, favicon)
+│   ├── particle-field.tsx    # Interactive canvas background
+│   └── theme-provider.tsx
+├── public/                   # Static assets (favicon)
 └── .github/workflows/        # GitHub Pages deployment
 ```
 
 ## 📝 Customization
 
-- Edit page content in `app/`
-- Manage projects in `lib/projects.ts`
-- Static assets (images, slides) live in `public/`
+- The monogram lives in `app/page.tsx` (inline SVG)
+- Particle behaviour (density, link distance, pointer radius) is tunable at the
+  top of `components/particle-field.tsx`
 - Global styles in `app/globals.css`
 
 ## 📄 License
